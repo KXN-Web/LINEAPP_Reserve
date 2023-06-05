@@ -1,147 +1,209 @@
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【ケーバイエヌ】お問合せフォーム</title>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <title>【ケーバイエヌ】</title>
 </head>
+
 <body>
-<script>
-    // ウェブアプリのURL
-const endpoint = "https://script.google.com/macros/s/AKfycbyru4-1-tiUc0VjJNHM3Qdm4tUZIFawqo8aRczvzsrm9vpUcqu6410IeG0x-a2pFg8s/exec";
-
-// liff.getContextでユーザー情報オブジェクトをとってくる。（LINEにログインしていることが前提）
-//const context = liff.getContext()
-//const lUserId = context.userId
-
-function getSheetData(){
-	
-	// liff.getContextでユーザー情報オブジェクトをとってくる。（LINEにログインしていることが前提）
-	//const context = liff.getContext()
-	  
-    $.ajax({
-        type: 'GET',
-        url: endpoint,
-        dataType: 'jsonp',
-        data: {
-            lUserId:12      //LINEUserID
-        },
-    })
-    .done(function(out){
-        //受け取ったデータをここで処理する
-        console.log(out.data);
-        let item = out.data; 
-                
-        if(item[0] != "データなし"){
-			const name    = item[0];
-			const furigana = item[1];
-			const phoneNo  = item[2];
-			const eMail  = item[3];
-			const jusyo = item[4];
-			const moyori = item[5];
-			const moyoriTime = item[6];
-			
-			// 各要素の取得
-			var fname = document.getElementById("name");
-			var ffurigana = document.getElementById("furigana");
-			var fphoneNo = document.getElementById("phoneNo");
-			var feMail = document.getElementById("eMail");
-			var fjusyo = document.getElementById("jusyo");
-			var fmoyori = document.getElementById("moyori");
-			var fmoyoriTime = document.getElementById("moyoriTime");
-			
-			
-			// 各要素の編集
-			fname.required = false;
-			fname.disabled = true;
-			fname.value = name;
-			
-			ffurigana.required = false;
-			ffurigana.disabled = true;
-			ffurigana.value = furigana;
-
-			fphoneNo.required = false;
-			fphoneNo.disabled = true;
-			fphoneNo.value = phoneNo;
-
-			feMail.required = false;
-			feMail.disabled = true;
-			feMail.value = eMail;
-
-			fjusyo.required = false;
-			fjusyo.disabled = true;
-			fjusyo.value = jusyo;
-
-			fmoyori.required = false;
-			fmoyori.disabled = true;
-			fmoyori.value = moyori;
-
-			fmoyoriTime.required = false;
-			fmoyoriTime.disabled = true;
-			fmoyoriTime.value = moyoriTime;
-
-        }
-
-    })
-    .fail(function() {
-        //エラー時の処理を書く
-        console.log('エラー');
-    })
-    
-}
-</script>
-
-
-    <form class="w-75 mx-auto">
-        <p class="mt-3">お名前【必須】</p>
+    <form class="w-75 mx-auto"  name="form1">
+        <p class="mt-3">■ ご予約内容 ■■■■■■</p>
+        <p class="mt-3">シッティングタイプ</p>
         <div>
-            <input id="name" class="form-control w-100 mt-1" name="name" placeholder="" required>
+            <input  type="radio" class="form-control w-100 mt-1" id="oneShot" name="type" placeholder=""  value="単発保育" required>単発保育
+            <input  type="radio" class="form-control w-100 mt-1" id="regular" name="type" placeholder=""  value="定期保育" required>定期保育
+            <input  type="radio" class="form-control w-100 mt-1" id="pickUp" name="type" placeholder=""  value="送迎保育" required>送迎保育
         </div>
-        <p class="mt-3">フリガナ【必須】</p>
+        <br>
+        <p class="mt-3">希望日時</p>
+	<p class="mt-3"><small>※ 定期保育をご希望の方は開始希望日時を入力してください</small></p>
         <div>
-            <input id="furigana" class="form-control w-100 mt-1" name="furigana" required>
+		<input type="date" class="form-control w-100 mt-1" id="preDate" name="preDate" required>
         </div>
-        <p class="mt-3">電話番号【必須】</p>
         <div>
-            <input type="tel" id="phoneNo" class="form-control w-100 mt-1" name="phoneNo" required>
+		<input type="time" name="sTime" step="300" required>
+		から
+		<input type="time" name="eTime" step="300" required>
         </div>
-        <p class="mt-3">メールアドレス【必須】</p>
+        <p class="mt-3">希望曜日</p>
+	<p class="mt-3"><small>※ 定期保育をご希望の方のみ入力してください</small></p>
         <div>
-            <input type="email" id="eMail" class="form-control w-100 mt-1" name="eMail" required>
+	  <fieldset>
+	    <input type="checkbox" id="Sun" name="dow"><label for="check1">日</label>
+	    <input type="checkbox" id="Mon" name="dow"><label for="check1">月</label>
+	    <input type="checkbox" id="Tue" name="dow"><label for="check1">火</label>
+	    <input type="checkbox" id="Wed" name="dow"><label for="check1">水</label>
+	    <input type="checkbox" id="Thu" name="dow"><label for="check1">木</label>
+	    <input type="checkbox" id="Fri" name="dow"><label for="check1">金</label>
+	    <input type="checkbox" id="Sat" name="dow"><label for="check1">土</label>
+	  </fieldset>
+        </div>
+	    
+	<p class="mt-3">シッティング希望場所</p>
+	<div>
+            <input class="form-control w-100 mt-1" id="dePlace" name="dePlace" placeholder="" required>
+        </div>
+	    
+	<p class="mt-3">言語</p>    
+        <div>
+        <div>
+            <input  type="radio" class="form-control w-100 mt-1" id="ja" name="lang" placeholder=""  value="日本語" required>日本語
+            <input  type="radio" class="form-control w-100 mt-1" id="en" name="lang" placeholder=""  value="英語" required>英語
+            <input  type="radio" class="form-control w-100 mt-1" id="jaEn" name="lang" placeholder=""  value="日本語+英語" required>日本語+英語
+	    <input  type="radio" class="form-control w-100 mt-1" id="other" name="lang" placeholder=""  value="その他" required>その他
+        </div>
+        </div>
+	<p class="mt-3">その他の言語を希望の方</p>
+	<div>
+            <input class="form-control w-100 mt-1" id="langOther" name="langOther" placeholder="">
+        </div>
+
+	<p class="mt-3">ペットの有無</p>    
+        <div>
+            <input  type="radio" class="form-control w-100 mt-1" id="petYes" name="pet" placeholder=""  value="いる" required>いる
+            <input  type="radio" class="form-control w-100 mt-1" id="petNo" name="pet" placeholder=""  value="" required>いない
+        </div>
+	<p class="mt-3">ペットの種類</p>
+	<div>
+            <input class="form-control w-100 mt-1" id="petKinds" name="petKinds" placeholder="">
+        </div>
+	<p class="mt-3">備考</p>
+        <div>
+            <textarea class="form-control" id="exampleFormControlTextarea1"  id="biko" name="biko" rows="3" required></textarea>
+        </div>
+	    
+        <p class="mt-3"><small>※ LINEでご予約またはお問合せをしたことがある場合、以下の情報は自動的に前回入力した内容が表示されます※ ご予約が初めての場合、一部の情報が登録されていません。必ずご確認ください<br>※ 登録データを変更する必要がある場合は、一度削除して再入力してください<br>※ お子様の情報を追加する場合は、2人目以降に入力してください</small></p>
+        <p class="mt-3"><small></small></p>
+        <p class="mt-3">■ お客様（保護者）の情報 ■■■■■■</p>
+        <p class="mt-3">名前</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="name" name="name" placeholder="" required>
+        </div>
+        <p class="mt-3">フリガナ</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="furigana" name="furigana" placeholder="" required>
+        </div>
+        <p class="mt-3">生年月日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" id="birthday" name="birthday" required>
+        </div>
+	<p class="mt-3">電話番号</p>
+        <div>
+            <input type="tel" class="form-control w-100 mt-1" id="phoneNo" name="phoneNo" placeholder="" required>
+        </div>
+        <p class="mt-3">メールアドレス</p>
+        <div>
+            <input type="email" class="form-control w-100 mt-1" id="email" name="email" placeholder="" required>
         </div>
         <p class="mt-3">住所</p>
         <div>
-            <input id="jusyo" class="form-control w-100 mt-1" name="jusyo">
+            <input class="form-control w-100 mt-1" id="address" name="address" placeholder="" required>
         </div>
         <p class="mt-3">最寄り駅</p>
         <div>
-            <input id="moyori" class="form-control w-100 mt-1" name="moyori">
+            <input class="form-control w-100 mt-1" id="station" name="station" required><br>
+		から徒歩<input class="form-control w-50 mt-1" id="time" name="time" required>
         </div>
-        <p class="mt-3">最寄り駅からの時間（分）</p>
+        <p class="mt-3">■ 1人目のお子様の情報 ■■■■■■</p>
+        <p class="mt-3">名前</p>
         <div>
-            <input id="moyoriTime" class="form-control w-100 mt-1" name="moyoriTime" >
-        </div
-        <p class="mt-3">お問合せ内容【必須】</p>
-        <div>
-            <textarea maxlength="500" rows="5" class="form-control w-100 mt-1" id="naiyo" required></textarea>
+            <input class="form-control w-100 mt-1" id="child1name" name="child1name" placeholder="">
         </div>
-        <input type="submit" class="mt-4 btn btn-primary" value="送信">
-    </form>
+        <p class="mt-3">フリガナ</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child1furigana" name="child1furigana" placeholder="">
+        </div>
+        <p class="mt-3">ご家庭での呼び方 (カタカナ入力)</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child1nickname" name="child1nickname" placeholder="">
+        </div>
+	<p class="mt-3">お誕生日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" id="child1birthday" name="child1birthday">
+        </div>
+	<p class="mt-3">性別</p>    
+        <div>
+            <input  type="radio" class="form-control w-100 mt-1" id="child1Man" name="child1sex" placeholder=""  value="男の子" required>男の子
+            <input  type="radio" class="form-control w-100 mt-1" id="child1Wo" name="child1sex" placeholder=""  value="女の子" required>女の子
+        </div>
 
+        <p class="mt-3">■ 2人目のお子様の情報 ■■■■■■</p>
+        <p class="mt-3">名前</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child2name" name="child2name" placeholder="">
+        </div>
+        <p class="mt-3">フリガナ</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child2furigana" name="child2furigana" placeholder="">
+        </div>
+        <p class="mt-3">ご家庭での呼び方 (カタカナ入力)</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child2nickname" name="child2nickname" placeholder="">
+        </div>
+	<p class="mt-3">お誕生日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" id="child2birthday" name="child1birthday">
+        </div>
+	<p class="mt-3">性別</p>    
+        <div>
+            <input  type="radio" class="form-control w-100 mt-1" id="child2Man" name="child2sex" placeholder=""  value="男の子" required>男の子
+            <input  type="radio" class="form-control w-100 mt-1" id="child2Wo" name="child2sex" placeholder=""  value="女の子" required>女の子
+        </div>	    
+
+        <p class="mt-3">■ 3人目のお子様の情報 ■■■■■■</p>
+        <p class="mt-3">名前</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child3name" name="child3name" placeholder="">
+        </div>
+        <p class="mt-3">フリガナ</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child3furigana" name="child3furigana" placeholder="">
+        </div>
+        <p class="mt-3">ご家庭での呼び方 (カタカナ入力)</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child3nickname" name="child3nickname" placeholder="">
+        </div>
+	<p class="mt-3">お誕生日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" id="child3birthday" name="child1birthday">
+        </div>
+	<p class="mt-3">性別</p>    
+        <div>
+            <input  type="radio" class="form-control w-100 mt-1" id="child3Man" name="child3sex" placeholder=""  value="男の子" required>男の子
+            <input  type="radio" class="form-control w-100 mt-1" id="child3Wo" name="child3sex" placeholder=""  value="女の子" required>女の子
+        </div>	
+
+	<input  type="submit" class="mt-4 btn btn-primary" value="送信">
+    </form>
+    <br>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+
     <script>
-    
+
         $(document).ready(function () {
             const liffId = "1660996109-5XePRDqM";
             initializeLiff(liffId);
         })
-
+        
+        liff.ready.then(() => {
+          if (!liff.isLoggedIn()) {
+            liff.login();
+          }
+          const idToken = liff.getDecodedIDToken();
+          const userId = idToken.sub;
+          getData(userId);
+        })
+        
+        
         function initializeLiff(liffId) {
             liff.init({
                 liffId: liffId
@@ -168,22 +230,171 @@ function getSheetData(){
 
         $(function () {
             $('form').submit(function () {
-                const flg     = "【お問合せ】";
+		// ラジオボタンの成形
+		// シッティングタイプ
+		let typeValue = '';
+		for (let i = 0; i < len; i++){
+		    if (type.item(i).checked){
+			typeValue = type.item(i).value;
+		    }
+		}
+		// 言語
+		let langValue = '';
+		for (let i = 0; i < len; i++){
+		    if (lang.item(i).checked){
+			langValue = lang.item(i).value;
+		    }
+		}
+		// ペット
+		let petValue = '';
+		for (let i = 0; i < len; i++){
+		    if (pet.item(i).checked){
+			petValue = pet.item(i).value;
+		    }
+		}
+		// 子供1性別
+		let child1sexValue = '';
+		for (let i = 0; i < len; i++){
+		    if (child1sex.item(i).checked){
+			child1sexValue = child1sex.item(i).value;
+		    }
+		}
+		// 子供2性別
+		let child2sexValue = '';
+		for (let i = 0; i < len; i++){
+		    if (child2sex.item(i).checked){
+			child2sexValue = child2sex.item(i).value;
+		    }
+		}
+		// 子供3性別
+		let child3sexValue = '';
+		for (let i = 0; i < len; i++){
+		    if (child3sex.item(i).checked){
+			child3sexValue = child3sex.item(i).value;
+		    }
+		}
+		    
+		// 曜日の成形
+		yobi = yobiChekc(yobi,Sun.checked,"日");
+		yobi = yobiChekc(yobi,Mon.checked,"月");
+		yobi = yobiChekc(yobi,Tue.checked,"火");
+		yobi = yobiChekc(yobi,Wed.checked,"水");
+		yobi = yobiChekc(yobi,Thu.checked,"木");
+		yobi = yobiChekc(yobi,Fri.checked,"金");
+		yobi = yobiChekc(yobi,Sat.checked,"土");
+
                 const name    = $('input[name="name"]').val();
                 const furigana = $('input[name="furigana"]').val();
+                const type    = ${typeValue};
+                const preDate = $('input[name="preDate"]').val();
+                const sTime = $('input[name="sTime"]').val();
+                const eTime = $('input[name="eTime"]').val();
+                const yobi = ${yobi};
+                const lang = ${langValue};
+                const langOther = $('input[name="langOther"]').val();
+                const pet = ${petValue};
+                const petKinds = $('input[name="petKinds"]').val();
+                const biko = $('input[name="biko"]').val();
+                const birthday = $('input[name="birthday"]').val();
                 const phoneNo  = $('input[name="phoneNo"]').val();
-                const eMail  = $('input[name="eMail"]').val();
-                const jusyo = $('input[name="jusyo"]').val();
-                const moyori = $('input[name="moyori"]').val();
-                const moyoriTime = $('input[name="moyoriTime"]').val();
-                const naiyo = (document.getElementById("naiyo").value).replace( /\r?\n/g , ' ');
-                const msg = `${flg}\n${name}\n${furigana}\n${phoneNo}\n${eMail}\n${jusyo}\n${moyori}\n${moyoriTime}\n${naiyo}`;
-                sendText(msg);
+                const email  = $('input[name="email"]').val();
+                const address = $('input[name="address"]').val();
+                const station = $('input[name="station"]').val();
+                const time = $('input[name="time"]').val();
+                const child1name = $('input[name="child1name"]').val();
+                const child1furigana = $('input[name="child1furigana"]').val();
+                const child1nickname = $('input[name="child1nickname"]').val();
+                const child1birthday = $('input[name="child1birthday"]').val();
+                const child1sex = ${child1sex}
+                const child2name = $('input[name="child2name"]').val();
+                const child2furigana = $('input[name="child2furigana"]').val();
+                const child2nickname = $('input[name="child2nickname"]').val();
+                const child2birthday = $('input[name="child2birthday"]').val();
+                const child2sex = ${child2sex}
+                const child3name = $('input[name="child3name"]').val();
+                const child3furigana = $('input[name="child3furigana"]').val();
+                const child3nickname = $('input[name="child3nickname"]').val();
+                const child3birthday = $('input[name="child3birthday"]').val();
+                const child3sex = ${child3sex}
+                
+                const msg = `
+                【区分】ご予約\n
+                【氏名】${name}\n
+                【フリガナ】${furigana}\n
+                【タイプ】${type}\n
+                【希望日時】${preDate}\n
+                【開始】sTime\n
+                【終了】eTime\n
+                【曜日】${yobi}\n
+                【言語】${lang}\n
+                【その他言語】${langOther}\n
+                【ペット】${pet}\n
+                【ペットの種類】${petKinds}\n
+                【備考】${biko}\n
+                【生年月日】${birthday}\n
+                【電話番号】${phoneNo}\n
+                【メールアドレス】${email}\n
+                【住所】${address}\n
+                【最寄り駅】${station}\n
+                【徒歩】${time}\n
+                【1人目のお名前】${child1name}\n
+                【フリガナ】${child1furigana}\n
+                【呼び方】${child1nickname}\n
+                【誕生日】${child1birthday}\n
+                【性別】${child1sex}\n
+                【2人目のお名前】${child2name}\n
+                【フリガナ】${child2furigana}\n
+                【呼び方】${child2nickname}\n
+                【誕生日】${child2birthday}\n
+                【性別】${child2sex}\n
+                【3人目のお名前】${child3name}\n
+                【フリガナ】${child3furigana}\n
+                【呼び方】${child3nickname}\n
+                【誕生日】${child3birthday}\n
+                【性別】${child3sex}\n`;
+		
+		sendText(msg);
                 return false;
             });
         });
 
     </script>
+    
+    <script>
+        function getData(userID) {
+            const endpoint = "https://script.google.com/macros/s/AKfycbww2vogO_l3pExSFsYLZRxO_mzsSL-AA1UbypNxL6dXOi-6RUbPMElqG6CFqj9s6jye/exec";
+              
+            //APIを使って非同期データを取得する
+            fetch((urlOf(endpoint, { userID: userID })))
+            .then(response => response.json())
+            /*成功した処理*/
+            .then(data => {
+                //JSONから配列に変換
+                const object = data;
+                //inputタグそれぞれに取得したデータを設定
+                $('input').each(function (index, element) {
+                    if (object[0][$(element).attr('name')]) {
+                        $(element).val([object[0][$(element).attr('name')]]);
+                    }
+                });
+            });
+         }
+        
+        function urlOf(url, params) {
+            return `${url}?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`;
+        }
+	
+	function yobiChekc(yobi,chk,text){
+		let msg = "";
+		if (chk){
+			if(yobi!=""){
+				msg = yobi+",";
+			}
+			msg = msg+text;
+		}
+		return msg;
+	}
 
+    </script>
 </body>
 </html>
