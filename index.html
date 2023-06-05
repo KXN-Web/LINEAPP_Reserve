@@ -19,6 +19,29 @@
             <p class="mt-3"><input  type="radio" name="type" placeholder=""  value="regular" >定期保育</p>
             <p class="mt-3"><input  type="radio" name="type" placeholder=""  value="pickUp">送迎保育</p>
         </div>
+        <p class="mt-3">希望日時</p>
+	<p class="mt-3"><small>※ 定期保育をご希望の方は開始希望日時を入力してください</small></p>
+        <div>
+		<input type="date" class="form-control w-100 mt-1" id="preDate" name="preDate" required>
+        </div>
+        <div>
+		<input type="time" name="sTime" step="300" value="00:00:00"　required>
+		から
+		<input type="time" name="eTime" step="300" value="00:00:00" required>
+        </div>
+        <p class="mt-3">希望曜日</p>
+	<p class="mt-3"><small>※ 定期保育をご希望の方のみ入力してください</small></p>
+        <div>
+	  <fieldset>
+	    <input type="checkbox" id="Sun" name="dow"><label for="check1">日</label>
+	    <input type="checkbox" id="Mon" name="dow"><label for="check1">月</label>
+	    <input type="checkbox" id="Tue" name="dow"><label for="check1">火</label>
+	    <input type="checkbox" id="Wed" name="dow"><label for="check1">水</label>
+	    <input type="checkbox" id="Thu" name="dow"><label for="check1">木</label>
+	    <input type="checkbox" id="Fri" name="dow"><label for="check1">金</label>
+	    <input type="checkbox" id="Sat" name="dow"><label for="check1">土</label>
+	  </fieldset>
+        </div>
        
 
 	<input  type="submit" class="mt-4 btn btn-primary" value="送信">
