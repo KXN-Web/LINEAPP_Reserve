@@ -230,15 +230,6 @@
 
         $(function () {
             $('form').submit(function () {
-		    	alert( "submit!" );
-				// 言語
-				let langValue = '';
-				for (let i = 0; i < len; i++){
-					if (lang.item(i).checked){
-						langValue = lang.item(i).value;
-					}
-				}
-		
                 const name    = $('input[name="name"]').val();
                 const furigana = $('input[name="furigana"]').val();
                 const phoneNo  = $('input[name="phoneNo"]').val();
