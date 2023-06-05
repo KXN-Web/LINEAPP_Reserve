@@ -136,6 +136,15 @@
 
     <script>
 
+			function () {
+				var today = new Date();
+				today.setDate(today.getDate());
+				var yyyy = today.getFullYear();
+				var mm = ("0"+(today.getMonth()+1)).slice(-2);
+				var dd = ("0"+today.getDate()).slice(-2);
+				document.getElementById("preDate").value=yyyy+'-'+mm+'-'+dd;
+			}
+	    
         $(document).ready(function () {
             const liffId = "1661328491-NK747zok";
             initializeLiff(liffId);
