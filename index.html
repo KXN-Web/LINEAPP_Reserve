@@ -228,32 +228,25 @@
         const params = (new URL(document.location)).searchParams;
         const key = params.get('key');
 
-
         $(function () {
-			$('form').submit(function () {
-				// ラジオボタンの成形
-				// シッティングタイプ
-				let typeValue = '';
-				for (let i = 0; i < len; i++){
-					if (type.item(i).checked){
-					typeValue = type.item(i).value;
-					}
-				}
-				alert( typeValue );
-				return false;
-				});
+            $('form').submit(function () {
+                const name    = $('input[name="name"]').val();
+                const furigana = $('input[name="furigana"]').val();
+                const phoneNo  = $('input[name="phoneNo"]').val();
+                const email  = $('input[name="email"]').val();
+                const address = $('input[name="address"]').val();
+                const station = $('input[name="station"]').val();
+                const time = $('input[name="time"]').val();
+                const child1birthday = $('input[name="child1birthday"]').val();
+                const child2birthday = $('input[name="child2birthday"]').val();
+                const child3birthday = $('input[name="child3birthday"]').val();
+                const naiyo = document.form1.naiyo.value;
+                const msg = `【区分】問合せ【氏名】${name}\n【フリガナ】${furigana}\n【電話番号】${phoneNo}\n【メールアドレス】${email}\n【住所】${address}\n【最寄り駅】${station}\n【駅からの時間】${time}\n【一人目のお子様】${child1birthday}\n【二人目のお子様】${child2birthday}\n【三人目のお子様】${child3birthday}\n【お問合せ内容】${naiyo}`;
+                sendText(msg);
+                return false;
+            });
         });
-	   
-	function yobiChekc(yobi,chk,text){
-		let msg = "";
-		if (chk){
-			if(yobi!=""){
-				msg = yobi+",";
-			}
-			msg = msg+text;
-		}
-		return msg;
-	}
+
     </script>
     
     <script>
