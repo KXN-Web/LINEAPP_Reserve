@@ -362,7 +362,7 @@
     
     <script>
         function getData(userID) {
-            const endpoint = "https://script.google.com/macros/s/AKfycbww2vogO_l3pExSFsYLZRxO_mzsSL-AA1UbypNxL6dXOi-6RUbPMElqG6CFqj9s6jye/exec";
+            const endpoint = "https://script.google.com/macros/s/AKfycbzczsoEpnEn_-Yy5BdgINcXmAkOgvd7HByeqyzwem13yGhoQIZE0_ieQQzvEV5kiD7vUw/exec";
               
             //APIを使って非同期データを取得する
             fetch((urlOf(endpoint, { userID: userID })))
@@ -379,11 +379,13 @@
                 });
             });
          }
-	    
+        
         function urlOf(url, params) {
             return `${url}?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`;
         }
-	
+
+    </script>
+    <script>
 	function yobiChekc(yobi,chk,text){
 		let msg = "";
 		if (chk){
