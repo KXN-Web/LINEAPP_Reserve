@@ -238,6 +238,7 @@
 			typeValue = type.item(i).value;
 		    }
 		}
+		    alert( typeValue )
 		// 言語
 		let langValue = '';
 		for (let i = 0; i < len; i++){
@@ -245,6 +246,7 @@
 			langValue = lang.item(i).value;
 		    }
 		}
+		    alert( langValue )
 		// ペット
 		let petValue = '';
 		for (let i = 0; i < len; i++){
@@ -252,6 +254,7 @@
 			petValue = pet.item(i).value;
 		    }
 		}
+		    alert( petValue )
 		// 子供1性別
 		let child1sexValue = '';
 		for (let i = 0; i < len; i++){
@@ -259,6 +262,7 @@
 			child1sexValue = child1sex.item(i).value;
 		    }
 		}
+		    alert( child1sexValue )
 		// 子供2性別
 		let child2sexValue = '';
 		for (let i = 0; i < len; i++){
@@ -266,6 +270,7 @@
 			child2sexValue = child2sex.item(i).value;
 		    }
 		}
+		    alert( child2sexValue )
 		// 子供3性別
 		let child3sexValue = '';
 		for (let i = 0; i < len; i++){
@@ -273,8 +278,10 @@
 			child3sexValue = child3sex.item(i).value;
 		    }
 		}
+		    alert( child3sexValue )
 		    
 		// 曜日の成形
+		let yobi= "";
 		yobi = yobiChekc(yobi,Sun.checked,"日");
 		yobi = yobiChekc(yobi,Mon.checked,"月");
 		yobi = yobiChekc(yobi,Tue.checked,"火");
@@ -282,6 +289,7 @@
 		yobi = yobiChekc(yobi,Thu.checked,"木");
 		yobi = yobiChekc(yobi,Fri.checked,"金");
 		yobi = yobiChekc(yobi,Sat.checked,"土");
+		    alert( yobi )
 
                 const name    = $('input[name="name"]').val();
                 const furigana = $('input[name="furigana"]').val();
