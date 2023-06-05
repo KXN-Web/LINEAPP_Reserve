@@ -15,7 +15,7 @@
         <p class="mt-3">■ ご予約内容 ■■■■■■</p>
         <!--<p class="mt-3">シッティングタイプ</p>
         <div>
-            <p class="mt-3"><input  type="radio" name="type" placeholder=""  value="one" required>単発保育</p>
+            <p class="mt-3"><input  type="radio" name="type" placeholder=""  value="one" checked required>単発保育</p>
             <p class="mt-3"><input  type="radio" name="type" placeholder=""  value="regular" >定期保育</p>
             <p class="mt-3"><input  type="radio" name="type" placeholder=""  value="pickUp">送迎保育</p>
         </div>-->
@@ -52,7 +52,7 @@
 	    
 	<!--<p class="mt-3">言語</p>    
 	<div>
-		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="ja" required>日本語</p></p>
+		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="ja" checked required>日本語</p></p>
 		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="en" >英語</p>
 		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="jaEn" >日本語+英語</p>
 		<p class="mt-3"><input  type="radio"  name="lang" placeholder=""  value="other" >その他</p>
@@ -65,7 +65,7 @@
 
 	<p class="mt-3">ペットの有無</p>    
         <div>
-            <p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="true" required>いる</p>
+            <p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="true" checked required>いる</p>
             <p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="" >いない</p>
         </div>
 	<p class="mt-3">ペットの種類</p>
@@ -109,22 +109,75 @@
             から徒歩<input class="form-control w-50 mt-1" id="time" name="time" required>分
         </div>
         <p class="mt-3">■ お子様の情報 ■■■■■■</p>
-        <p class="mt-3">一人目のお誕生日</p>
+        <p class="mt-3">■ 1人目のお子様の情報 ■■■■■■</p>
+        <p class="mt-3">名前</p>
         <div>
-            <input type="date" class="form-control w-100 mt-1" id="child1birthday" name="child1birthday" required>
+            <input class="form-control w-100 mt-1" id="child1name" name="child1name" placeholder="">
         </div>
-        <p class="mt-3">二人目のお誕生日</p>
+        <p class="mt-3">フリガナ</p>
         <div>
-            <input type="date" class="form-control w-100 mt-1" id="child2birthday" name="child2birthday" required>
+            <input class="form-control w-100 mt-1" id="child1furigana" name="child1furigana" placeholder="">
         </div>
-        <p class="mt-3">三人目のお誕生日</p>
+        <p class="mt-3">ご家庭での呼び方 (カタカナ入力)</p>
         <div>
-            <input type="date" class="form-control w-100 mt-1" id="child3birthday" name="child3birthday" required>
+            <input class="form-control w-100 mt-1" id="child1nickname" name="child1nickname" placeholder="">
+        </div>
+	<p class="mt-3">お誕生日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" id="child1birthday" name="child1birthday">
+        </div>
+	<p class="mt-3">性別</p>    
+        <div>
+            <p class="mt-3"><input  type="radio" class="form-control w-100 mt-1" name="child1sex" placeholder=""  value="boy" checked required>男の子</p>
+            <p class="mt-3"><input  type="radio" class="form-control w-100 mt-1" name="child1sex" placeholder=""  value="garl" >女の子</p>
         </div>
 
-        <input  type="submit" class="mt-4 btn btn-primary" value="送信">
+        <p class="mt-3">■ 2人目のお子様の情報 ■■■■■■</p>
+        <p class="mt-3">名前</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child2name" name="child2name" placeholder="">
+        </div>
+        <p class="mt-3">フリガナ</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child2furigana" name="child2furigana" placeholder="">
+        </div>
+        <p class="mt-3">ご家庭での呼び方 (カタカナ入力)</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child2nickname" name="child2nickname" placeholder="">
+        </div>
+	<p class="mt-3">お誕生日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" id="child2birthday" name="child2birthday">
+        </div>
+	<p class="mt-3">性別</p>    
+        <div>
+            <p class="mt-3"><input  type="radio" class="form-control w-100 mt-1" name="child2sex" placeholder=""  value="boy" checked required>男の子</p>
+            <p class="mt-3"><input  type="radio" class="form-control w-100 mt-1" name="child2sex" placeholder=""  value="garl" >女の子</p>
+        </div>	    
 
-	
+        <p class="mt-3">■ 3人目のお子様の情報 ■■■■■■</p>
+        <p class="mt-3">名前</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child3name" name="child3name" placeholder="">
+        </div>
+        <p class="mt-3">フリガナ</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child3furigana" name="child3furigana" placeholder="">
+        </div>
+        <p class="mt-3">ご家庭での呼び方 (カタカナ入力)</p>
+        <div>
+            <input class="form-control w-100 mt-1" id="child3nickname" name="child3nickname" placeholder="">
+        </div>
+	<p class="mt-3">お誕生日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" id="child3birthday" name="child3birthday">
+        </div>
+	<p class="mt-3">性別</p>    
+        <div>
+            <p class="mt-3"><input  type="radio" class="form-control w-100 mt-1" name="child3sex" placeholder=""  value="boy" checked required>男の子</p>
+            <p class="mt-3"><input  type="radio" class="form-control w-100 mt-1" name="child3sex" placeholder=""  value="garl" >女の子</p>
+        </div>	
+
 	<input  type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
     <br>
