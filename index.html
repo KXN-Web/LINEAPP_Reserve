@@ -203,7 +203,29 @@
           getData(userId);
         })
         
+        function getData(userID) {
+            const endpoint = "https://script.google.com/macros/s/AKfycbzczsoEpnEn_-Yy5BdgINcXmAkOgvd7HByeqyzwem13yGhoQIZE0_ieQQzvEV5kiD7vUw/exec";
+              
+            //APIを使って非同期データを取得する
+            fetch((urlOf(endpoint, { userID: userID })))
+            .then(response => response.json())
+            /*成功した処理*/
+            .then(data => {
+                //JSONから配列に変換
+                const object = data;
+                //inputタグそれぞれに取得したデータを設定
+                $('input').each(function (index, element) {
+                    if (object[0][$(element).attr('name')]) {
+                        $(element).val([object[0][$(element).attr('name')]]);
+                    }
+                });
+            });
+         }
         
+        function urlOf(url, params) {
+            return `${url}?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`;
+        }
+	    
         function initializeLiff(liffId) {
             liff.init({
                 liffId: liffId
