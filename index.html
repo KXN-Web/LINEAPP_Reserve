@@ -84,6 +84,12 @@
 		  background-color: #C44;
 		  content: "必須";
 		}
+		
+		.chk p {
+
+		  display: inline-block;
+
+		}
 	</style>
 </head>
 
@@ -194,16 +200,14 @@
 		<br>
 		<label class="required">希望曜日</labbel>
 		<br><small>※ 定期保育をご希望の方のみ入力してください</small>
-		<div>
-		  <fieldset>
-			<p class="mt-3"><input type="checkbox" id="Sun" name="dow" value="日">日</p>
-			<p class="mt-3"><input type="checkbox" id="Mon" name="dow" value="月">月</p>
-			<p class="mt-3"><input type="checkbox" id="Tue" name="dow" value="火">火</p>
-			<p class="mt-3"><input type="checkbox" id="Wed" name="dow" value="水">水</p>
-			<p class="mt-3"><input type="checkbox" id="Thu" name="dow" value="木">木</p>
-			<p class="mt-3"><input type="checkbox" id="Fri" name="dow" value="金">金</p>
-			<p class="mt-3"><input type="checkbox" id="Sat" name="dow" value="土">土</p>
-		  </fieldset>
+		<div class="chk">
+			<p class="mt-3"><input type="checkbox" id="Sun" name="dow" value="日"> 日 </p>
+			<p class="mt-3"><input type="checkbox" id="Mon" name="dow" value="月"> 月 </p>
+			<p class="mt-3"><input type="checkbox" id="Tue" name="dow" value="火"> 火 </p>
+			<p class="mt-3"><input type="checkbox" id="Wed" name="dow" value="水"> 水 </p>
+			<p class="mt-3"><input type="checkbox" id="Thu" name="dow" value="木"> 木 </p>
+			<p class="mt-3"><input type="checkbox" id="Fri" name="dow" value="金"> 金 </p>
+			<p class="mt-3"><input type="checkbox" id="Sat" name="dow" value="土"> 土 </p>
 		</div>
 
 	<label class="required">シッティング希望場所</label>
