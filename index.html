@@ -43,6 +43,14 @@
 		  opacity: 0;
 		  visibility: hidden;
 		}
+		.inputArrartShow {
+			opacity: 1;
+			visibility: visible;
+		}
+		.inputArrart {
+		  opacity: 0;
+		  visibility: hidden;
+		}
 	</style>
 </head>
 
@@ -59,16 +67,15 @@
 			<p class="mt-3"><input  type="radio" name="type" placeholder=""  value="定期保育" >定期保育</p>
 			<p class="mt-3"><input  type="radio" name="type" placeholder=""  value="送迎保育">送迎保育</p>
 		</div>
-		<p class="mt-3">希望日時</p>
-	<p class="mt-3"><small>※ 定期保育をご希望の方は開始希望日時を入力してください</small></p>
-		<div>
+		<p class="mt-3">希望日時<small>※ 定期保育をご希望の方は開始希望日時を入力してください</small></p>
+		<div class="perDateCon">
 		<input type="date" class="form-control w-100 mt-1" id="preDate" name="preDate" />
 		</div>
 		<br>
-		 <div>
-		<input type="time" name="sTime" step="300" value="00:00:00"　required>
-		から
-		<input type="time" name="eTime" step="300" value="00:00:00" required>
+		<div>
+			<input type="time" name="sTime" step="300" value="00:00:00"　required>
+			から
+			<input type="time" name="eTime" step="300" value="00:00:00" required>
 		</div>
 
 		<p class="mt-3">希望曜日<br><small>※ 定期保育をご希望の方のみ入力してください</small></p>
@@ -104,8 +111,8 @@
 
 	<p class="mt-3">ペットの有無</p>    
 		<div>
-			<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="true" checked required>いる</p>
-			<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="" >いない</p>
+			<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いる" checked required>いる</p>
+			<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いない" >いない</p>
 		</div>
 	<p class="mt-3">ペットの種類</p>
 	<div>
@@ -125,6 +132,10 @@
 	<p class="mt-3">フリガナ</p>
 	<div>
 		<input class="form-control w-100 mt-1" id="furigana" name="furigana" placeholder="" required>
+	</div>
+	<p class="mt-3">希望日時</p>
+	<div class="birthdayDateCon">
+		<input type="date" class="form-control w-100 mt-1" id="birthday" name="birthday" />
 	</div>
 	<p class="mt-3">電話番号</p>
 	<div>
@@ -162,7 +173,7 @@
 		</div>
 	<p class="mt-3">性別</p>    
 		<div>
-			<p class="mt-3"><input  type="radio" name="child1sex" placeholder=""  value="男の子" checked required>男の子</p>
+			<p class="mt-3"><input  type="radio" name="child1sex" placeholder=""  value="男の子" required>男の子</p>
 			<p class="mt-3"><input  type="radio" name="child1sex" placeholder=""  value="女の子" >女の子</p>
 		</div>
 
@@ -185,7 +196,7 @@
 		</div>
 	<p class="mt-3">性別</p>    
 		<div>
-			<p class="mt-3"><input  type="radio" name="child2sex" placeholder=""  value="男の子" checked required>男の子</p>
+			<p class="mt-3"><input  type="radio" name="child2sex" placeholder=""  value="男の子" required>男の子</p>
 			<p class="mt-3"><input  type="radio" name="child2sex" placeholder=""  value="女の子" >女の子</p>
 		</div>	    
 
@@ -208,10 +219,14 @@
 		</div>
 	<p class="mt-3">性別</p>    
 		<div>
-			<p class="mt-3"><input  type="radio" name="child3sex" placeholder=""  value="男の子" checked required>男の子</p>
+			<p class="mt-3"><input  type="radio" name="child3sex" placeholder=""  value="男の子" required>男の子</p>
 			<p class="mt-3"><input  type="radio" name="child3sex" placeholder=""  value="女の子" >女の子</p>
-	</div>	
-		
+	</div>
+	
+	<div class="alert alert-danger" id="inputArrart" role="alert">
+	  <p  id="arartText" ></p>
+	</div>
+	
 	<input  type="submit" class="mt-4 btn btn-primary" value="送信">
 	</form>
     <br>
@@ -262,67 +277,7 @@
 
         $(function () {
             $('form').submit(function () {
-				// シッティングタイプ
-				/*let typeValue = '';
-				let typeChek = $('input:radio[name="type"]:checked').val();
-				for (let i = 0; i < len; i++){
-					if (typeChek){
-					langValue = lang.item(i).value;
-					}
-				}
-				alert(typeValue);*/
-				// 言語
-				/*let langValue = '';
-				for (let i = 0; i < len; i++){
-					if (lang.item(i).checked){
-					langValue = lang.item(i).value;
-					}
-				}
-				alert(langValue);*/
-				// ペット
-				/*let petValue = '';
-				for (let i = 0; i < len; i++){
-					if (pet.item(i).checked){
-					petValue = pet.item(i).value;
-					}
-				}
-				alert(petValue);
-				// 子供1性別
-				let child1sexValue = '';
-				for (let i = 0; i < len; i++){
-					if (child1sex.item(i).checked){
-					child1sexValue = child1sex.item(i).value;
-					}
-				}
-				alert(langValue);
-				// 子供2性別
-				let child2sexValue = '';
-				for (let i = 0; i < len; i++){
-					if (child2sex.item(i).checked){
-					child2sexValue = child2sex.item(i).value;
-					}
-				}
-				alert(langValue);
-				// 子供3性別
-				let child3sexValue = '';
-				for (let i = 0; i < len; i++){
-					if (child3sex.item(i).checked){
-					child3sexValue = child3sex.item(i).value;
-					}
-				}
-				alert(child3sexValue);
-
-				// 曜日の成形
-				let yobivalue= "";
-				yobivalue = yobiChekc(yobivalue,Sun.checked,"日");
-				yobivalue = yobiChekc(yobivalue,Mon.checked,"月");
-				yobivalue = yobiChekc(yobivalue,Tue.checked,"火");
-				yobivalue = yobiChekc(yobivalue,Wed.checked,"水");
-				yobivalue = yobiChekc(yobivalue,Thu.checked,"木");
-				yobivalue = yobiChekc(yobivalue,Fri.checked,"金");
-				yobivalue = yobiChekc(yobivalue,Sat.checked,"土");
-				alert(yobivalue);*/
-				
+				// 曜日取得
 				let yobivalue= "";
 				$('input[name=dow]:checked').each(function() {
 					if(yobivalue!=""){
@@ -331,7 +286,27 @@
 					yobivalue = yobivalue + $(this).val();
 				});
 				
-				alert(yobivalue);
+				// チェックしてアラートを出す
+				let arartText = "";
+				let perDateArart = "";
+				let birthdayArart = "";
+				
+				// 希望日のチェック
+				if($('input[name="preDate"]').val()==""){
+					perDateArart = "希望日を入力してください"
+					$('.perDateCon').css('background-color','yellow');
+				}				
+				// 誕生日のチェック
+				if($('input[name="birthday"]').val()==""){
+					birthdayArart = "保護者の誕生日を入力してください"
+					$('.birthdayDateCon').css('background-color','yellow');
+				}
+				arartText = perDateArart + birthdayArart;
+				
+				if(arartText!=""){
+					$("#inputArrart").text(arartText);
+					document.getElementById('inputArrart').classList.add('inputArrartShow');
+				}
 
 				const name    = $('input[name="name"]').val();
 				const furigana = $('input[name="furigana"]').val();
@@ -375,19 +350,6 @@
             });
         });
 
-		
-		function yobiChekc(yobivalue,checkBox,yobi){
-			let value = "";
-			if (yobivalue != ""){
-				value = ","
-			}
-			
-			
-			
-			return 
-		}
-		
-		
     </script>
     
 	<script>
