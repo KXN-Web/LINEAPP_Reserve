@@ -374,12 +374,13 @@
 				// 希望日のチェック
 				if($('input[name="preDate"]').val()==""){
 					perDateArart = "希望日を入力してください"
-					$('.perDateCon').css('background-color','yellow');
 				}				
 				// 誕生日のチェック
 				if($('input[name="birthday"]').val()==""){
-					birthdayArart = "保護者の誕生日を入力してください"
-					$('.birthdayDateCon').css('background-color','yellow');
+					if(perDateArart!=""){
+						birthdayArart = "\n";
+					}
+					birthdayArart = birthdayArart+"保護者の誕生日を入力してください"
 				}
 				arartText = perDateArart + birthdayArart;
 				
