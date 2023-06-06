@@ -325,11 +325,11 @@
 				alert(yobivalue);*/
 				
 				let yobivalue= "";
-				$('input[name=checkboxname1]:checked').each(function() {
+				$('input[name=dow]:checked').each(function() {
 					if(yobivalue!=""){
 						yobivalue = yobivalue + ",";
 					}
-					yobivalue = yobivalue+$(this).val();
+					yobivalue = yobivalue + $(this).val();
 				});
 				
 				alert(yobivalue);
@@ -372,6 +372,7 @@
 
 				alert(msg);
 				sendText(msg);
+				return false;
             });
         });
 
