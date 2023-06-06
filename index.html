@@ -33,18 +33,9 @@
 		  height: 20px;
 		}
 	</style>
-	<script>
-		const loading = document.querySelector('.loading');
-		window.addEventListener('load', () => {
-		  setTimeout(function() {
-		    loading.classList.add('hide');
-		  }, 1000);
-		});
-	</script>
 </head>
 
 <body>
-	// ローディング
 	<div class="loading">
 	  <div class="loading-wrap">
 		  <i class="fas fa-spinner fa-3x fa-spin"></i>
@@ -287,6 +278,15 @@
 
     </script>
     
+	<script>
+		const loading = document.querySelector('.loading');
+		window.addEventListener('load', () => {
+		  setTimeout(function() {
+		    loading.classList.add('hide');
+		  }, 1000);
+		});
+	</script>
+	
     <script>
         function getData(userID) {
             const endpoint = "https://script.google.com/macros/s/AKfycbwsQYEEajE-pXvm_FVPR6Y9sCNAljuXQNEd3IUMDDfZz_0HSXJWlbQy5UHn7rMktyg/exec";
