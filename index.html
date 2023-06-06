@@ -394,14 +394,14 @@
 				const furigana = $('input[name="furigana"]').val();
 				const type    = $('input:radio[name="type"]:checked').val();
 				const preDate = $('input[name="preDate"]').val();
-				const sTime = $('.sTimeH option:selected').val() + ":" + $('.sTimeM option:selected').val();
-				const eTime = $('.sTimeH option:selected').val() + ":" + $('.sTimeM option:selected').val();
+				const sTime = $('[name=sTimeH]').val() + ":" + $('[name=sTimeM]').val();
+				const eTime = $('[name=eTimeH]').val() + ":" + $('[name=eTimeM]').val();
 				const yobi = yobivalue;
 				const lang = $('input:radio[name="lang"]:checked').val();
 				const langOther = $('input[name="langOther"]').val();
 				const pet = $('input:radio[name="pet"]:checked').val();
 				const petKinds = $('input[name="petKinds"]').val();
-				const biko = ($('#biko').val());
+				const biko = $('textarea[name="biko"]').val();
 				const birthday = $('input[name="birthday"]').val();
 				const phoneNo  = $('input[name="phoneNo"]').val();
 				const email  = $('input[name="email"]').val();
