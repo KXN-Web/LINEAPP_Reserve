@@ -374,27 +374,22 @@
 
 				   
 				// 希望日のチェック
-				if($('input[name="preDate"]').val()==""){
-					perDateArart = "希望日を入力してください"
-				}
+				perDateArart = arartCheck(arartText,$('input[name="preDate"]').val(),"希望日を入力してください");
+				arartText = arartText + perDateArart;
+				
 				// 希望時間のチェック
 				if($('[name=sTimeH]').val()=="00" && $('[name=sTimeM]').val()=="00"&&'[name=eTimeH]').val()=="00" && $('[name=eTimeM]').val()=="00"){
-					if(perDateArart!=""){
-						timeArart = "<br>";
+					if(arartText!=""){
+						arartText = arartText + "<br>";
 					}
 					timeArart = timeArart+"希望時間を選択してください"
 				}
+				arartText = arartText + timeArart;
+				
 				// 誕生日のチェック
-				if($('input[name="birthday"]').val()==""){
-					if(perDateArart!=""||timeArart!=""){
-						birthdayArart = "<br>";
-					}
-					birthdayArart = birthdayArart+"保護者の誕生日を入力してください"
-				}
-				arartText = perDateArart + birthdayArart;
-		    
-
-				   
+				birthdayArart = arartCheck(arartText,$('input[name="birthday"]').val(),"希望日を入力してください");
+				arartText = arartText + birthdayArart;
+				
 				if(arartText!=""){
 					$("#inputArrart").text(arartText);
 					document.getElementById('inputArrart').classList.add('inputArrartShow');
@@ -444,6 +439,16 @@
             });
         });
 
+		funciton arartCheck(arartText,inputData,msg){
+			let reMst = ""
+			// 誕生日のチェック
+			if($('input[name="birthday"]').val()==""){
+				if(arartText!=""){
+					reMst = arartText+"<br>";
+				}
+				return reMst+msg;
+			}
+		}
     </script>
     
 	<script>
