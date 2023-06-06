@@ -290,10 +290,13 @@
     
 	<script>
 		window.onload = function() {
-		const spinner = document.getElementById('loading');
+			const spinner = document.getElementById('loading');
+			
+			setTimeout(function() {
+				// Add .loaded to .loading
+				spinner.classList.add('loaded');
+			}, 3000);
 
-		// Add .loaded to .loading
-		spinner.classList.add('loaded');
 		}
 	</script>
 	
