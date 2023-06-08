@@ -94,8 +94,8 @@
 		    font-size: 0.7em;
 		}
 		.radio-point {
-			margin-left:10px;
-			font-size: 0.7em;
+			margin-left:15px;
+			font-size: 0.5em;
 		}
 
 		.chk p {
@@ -113,9 +113,8 @@
 		<h1 class="heading12" data-number="01"><ruby>ご予約内容<rt>Reservation contents</rt></ruby></h1>
 		<label class="required"><span class="label-point">Sitting type</span><br>シッティングタイプ</label>
 		<div>
-			<p><input  type="radio" name="type" placeholder=""  value="単発保育" checked required><ruby>単発保育<rt>One-time childcare</rt></ruby></p>
-			<p><input  type="radio" name="type" placeholder=""  value="定期保育"><ruby>定期保育<rt>Regular childcare</rt></ruby></p>
-			
+			<p><span class="radio-point">One-time childcare</span><br><input  type="radio" name="type" placeholder=""  value="単発保育" checked required>単発保育</p>
+			<p><span class="radio-point">Regular childcare</span><br><input  type="radio" name="type" placeholder=""  value="定期保育">定期保育</p>
 			<p><span class="radio-point">Pick-up and childcare</span><br><input  type="radio" name="type" placeholder=""  value="送迎保育">送迎保育</p>
 		</div>
 		<label class="required"><span class="label-point">Preferred date</span><br>希望日時</label>
@@ -166,8 +165,8 @@
 				<option value="45">45</option>
 				<option value="50">50</option>
 				<option value="55">55</option>
-			</select><br>
-			から<br>
+			</select>
+			<br>～<br>
 			<select name="eTimeH">
 				<option value="00">00</option>
 				<option value="01">01</option>
@@ -214,13 +213,13 @@
 		<small>※ 定期保育をご希望の方のみ選択してください</small><br>
 		<small>※ Please select only if you wish to have regular childcare.</small>
 		<div class="chk">
-			<p class="mt-3"><input type="checkbox" id="Sun" name="dow" value="日"> 日 </p>
-			<p class="mt-3"><input type="checkbox" id="Mon" name="dow" value="月"> 月 </p>
-			<p class="mt-3"><input type="checkbox" id="Tue" name="dow" value="火"> 火 </p>
-			<p class="mt-3"><input type="checkbox" id="Wed" name="dow" value="水"> 水 </p>
-			<p class="mt-3"><input type="checkbox" id="Thu" name="dow" value="木"> 木 </p>
-			<p class="mt-3"><input type="checkbox" id="Fri" name="dow" value="金"> 金 </p>
-			<p class="mt-3"><input type="checkbox" id="Sat" name="dow" value="土"> 土 </p>
+			<p class="mt-3"><input type="checkbox" id="Sun" name="dow" value="日"><ruby> 日 <rt>Sun</rt></ruby></p>
+			<p class="mt-3"><input type="checkbox" id="Mon" name="dow" value="月"><ruby> 月 <rt>Mon</rt></ruby></p>
+			<p class="mt-3"><input type="checkbox" id="Tue" name="dow" value="火"><ruby> 火 <rt>Tue</rt></ruby> 火 </p>
+			<p class="mt-3"><input type="checkbox" id="Wed" name="dow" value="水"><ruby> 水 <rt>Wed</rt></ruby> 水 </p>
+			<p class="mt-3"><input type="checkbox" id="Thu" name="dow" value="木"><ruby> 木 <rt>Thu</rt></ruby> 木 </p>
+			<p class="mt-3"><input type="checkbox" id="Fri" name="dow" value="金"><ruby> 金 <rt>Fri</rt></ruby> 金 </p>
+			<p class="mt-3"><input type="checkbox" id="Sat" name="dow" value="土"><ruby> 土 <rt>Sat</rt></ruby> 土 </p>
 		</div>
 
 		<label class="required"><span class="label-point">Place</span><br>シッティング希望場所</label>
@@ -230,10 +229,10 @@
 
 	<label class="required"><span class="label-point">Language</span><br>言語</label>
 	<div>
-		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="日本語" checked required>日本語</p></p>
-		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="英語" >英語</p>
-		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="日本語+英語" >日本語+英語</p>
-		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="その他" >その他</p>
+		<p class="mt-3"><span class="radio-point">Japanese</span><br><input  type="radio" name="lang" placeholder=""  value="日本語" checked required>日本語</p></p>
+		<p class="mt-3"><span class="radio-point">English</span><br><input  type="radio" name="lang" placeholder=""  value="英語" >英語</p>
+		<p class="mt-3"><span class="radio-point">Japanese and English</span><br><input  type="radio" name="lang" placeholder=""  value="日本語+英語" >日本語+英語</p>
+		<p class="mt-3"><span class="radio-point">Other</span><br><input  type="radio" name="lang" placeholder=""  value="その他" >その他</p>
 	</div>
 
 	<label class="required"><span class="label-point">If you select Other in Language</span><br>その他の言語を希望の方</label>
@@ -243,8 +242,8 @@
 
 	<label class="required"><span class="label-point">Presence or absence of pets</span><br>ペットの有無</label>
 	<div>
-		<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いる" checked required>いる</p>
-		<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いない" >いない</p>
+		<p class="mt-3"><span class="radio-point">Have pets</span><br><input  type="radio" name="pet" placeholder=""  value="いる" checked required>いる</p>
+		<p class="mt-3"><span class="radio-point">None</span><br><input  type="radio" name="pet" placeholder=""  value="いない" >いない</p>
 	</div>
 		
 	<label><span class="label-point">Pet type</span><br>ペットの種類</label>
@@ -307,8 +306,8 @@
 		</div>
 	<label class="required"><span class="label-point">Sex</span><br>性別</label>  
 		<div>
-			<p class="mt-3"><input  type="radio" name="child1sex" placeholder=""  value="男の子" required>男の子</p>
-			<p class="mt-3"><input  type="radio" name="child1sex" placeholder=""  value="女の子" >女の子</p>
+			<p class="mt-3"><span class="radio-point">Boy</span><br><input  type="radio" name="child1sex" placeholder=""  value="男の子" required>男の子</p>
+			<p class="mt-3"><span class="radio-point">Girl</span><br><input  type="radio" name="child1sex" placeholder=""  value="女の子" >女の子</p>
 		</div>
 	<h1 class="heading12" data-number="04"><ruby>2人目のお子様の情報<rt>Second child information</rt></ruby></h1>
 	<label><span class="label-point">Name</span><br>名前</label>
@@ -329,8 +328,8 @@
 	</div>
 	<label><span class="label-point">Sex</span><br>性別</label>   
 	<div>
-	<p class="mt-3"><input  type="radio" name="child2sex" placeholder=""  value="男の子" required>男の子</p>
-	<p class="mt-3"><input  type="radio" name="child2sex" placeholder=""  value="女の子" >女の子</p>
+	<p class="mt-3"><span class="radio-point">Boy</span><br><input  type="radio" name="child2sex" placeholder=""  value="男の子" required>男の子</p>
+	<p class="mt-3"><span class="radio-point">Girl</span><br><input  type="radio" name="child2sex" placeholder=""  value="女の子" >女の子</p>
 	</div>	    
 		
 	<h1 class="heading12" data-number="05"><ruby>3人目のお子様の情報<rt>Third child information</rt></ruby></h1>
@@ -352,8 +351,8 @@
 	</div>
 	<label><span class="label-point">Sex</span><br>性別</label>     
 	<div>
-		<p class="mt-3"><input  type="radio" name="child3sex" placeholder=""  value="男の子" required>男の子</p>
-		<p class="mt-3"><input  type="radio" name="child3sex" placeholder=""  value="女の子" >女の子</p>
+		<p class="mt-3"><span class="radio-point">Boy</span><br><input  type="radio" name="child3sex" placeholder=""  value="男の子" required>男の子</p>
+		<p class="mt-3"><span class="radio-point">Girl</span><br><input  type="radio" name="child3sex" placeholder=""  value="女の子" >女の子</p>
 	</div>
 	
 	<div class="alert alert-danger" id="inputArrart" role="alert">
