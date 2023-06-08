@@ -114,7 +114,7 @@
 			<p class="mt-3"><input  type="radio" name="type" placeholder=""  value="送迎保育">送迎保育</p>
 		</div>
 		<label class="required"><span class="label-point">Preferred date</span><br>希望日時</label>
-		<small>※ 定期保育をご希望の方は開始希望日時を入力してください</small>
+		<small>※ 定期保育をご希望の方は開始希望日時を入力してください</small><Br>
 		<small>※ If you would like regular childcare, please enter the date and time you would like to start.</small>
 		<div class="perDateCon">
 		<input type="date" class="form-control w-100 mt-1" id="preDate" name="preDate" />
@@ -206,7 +206,7 @@
 			</select>
 		</div>
 		<label class="required"><span class="label-point">Desired day of the week</span><br>希望曜日</label>
-		<small>※ 定期保育をご希望の方のみ選択してください</small>
+		<small>※ 定期保育をご希望の方のみ選択してください</small><Br>
 		<small>※ Please select only if you wish to have regular childcare.</small>
 		<div class="chk">
 			<p class="mt-3"><input type="checkbox" id="Sun" name="dow" value="日"> 日 </p>
@@ -223,7 +223,7 @@
 		<input class="form-control w-100 mt-1" id="dePlace" name="dePlace" placeholder="" required>
 	</div>
 
-	<label class="required">言語</label>    
+	<label class="required"><span class="label-point">Language</span><br>言語</label>
 	<div>
 		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="日本語" checked required>日本語</p></p>
 		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="英語" >英語</p>
@@ -231,119 +231,121 @@
 		<p class="mt-3"><input  type="radio" name="lang" placeholder=""  value="その他" >その他</p>
 	</div>
 
-	<label>その他の言語を希望の方</label>
+	<label class="required"><span class="label-point">If you select Other in Language</span><br>その他の言語を希望の方</label>
 	<div>
-			<input class="form-control w-100 mt-1" id="langOther" name="langOther" placeholder="">
-		</div>
+		<input class="form-control w-100 mt-1" id="langOther" name="langOther" placeholder="">
+	</div>
 
-	<label class="required">ペットの有無</label>    
-		<div>
-			<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いる" checked required>いる</p>
-			<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いない" >いない</p>
-		</div>
-	<label>ペットの種類</label>
+	<label class="required"><span class="label-point">Presence or absence of pets</span><br>ペットの有無</label>
+	<div>
+		<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いる" checked required>いる</p>
+		<p class="mt-3"><input  type="radio" name="pet" placeholder=""  value="いない" >いない</p>
+	</div>
+		
+	<label class="required"><span class="label-point">Pet type</span><br>ペットの種類</label>
 	<div>
 			<input class="form-control w-100 mt-1" id="petKinds" name="petKinds" placeholder="">
 		</div>
 
-	<label>備考</label>
+	<label class="required"><span class="label-point">Remarks</span><br>備考</label>
 		<div>
 			<textarea class="form-control" id="exampleFormControlTextarea1"  id="biko" name="biko" rows="3" ></textarea>
 		</div>
 	<br>
-	<h1 class="heading12" data-number="02">お客様（保護者）の情報</h1>
-	<label class="required">名前</label>
+
+	<h1 class="heading12" data-number="01"><ruby>お客様（保護者）の情報<rt>Customer (guardian) information</rt></ruby></h1>
+	<label class="required"><span class="label-point">Name</span><br>名前</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="name" name="name" placeholder="" required>
 	</div>
-	<label class="required">フリガナ</label>
+	<label class="required"><span class="label-point">Furigana</span><br>フリガナ</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="furigana" name="furigana" placeholder="" required>
 	</div>
-	<label class="required">誕生日</label>
+	<label class="required"><span class="label-point">Birthday</span><br>誕生日</label>
 	<div class="birthdayDateCon">
 		<input type="date" class="form-control w-100 mt-1" id="birthday" name="birthday" />
 	</div>
-	<label class="required">電話番号</label>
+	<label class="required"><span class="label-point">PhoneNo</span><br>電話番号</label>
 	<div>
 		<input type="tel" class="form-control w-100 mt-1" id="phoneNo" name="phoneNo" placeholder="" required>
 	</div>
-	<label class="required">メールアドレス</label>
+	<label class="required"><span class="label-point">E-mail</span><br>メールアドレス</label>
 	<div>
 		<input type="email" class="form-control w-100 mt-1" id="email" name="email" placeholder="" required>
 	</div>
-	<label class="required">住所</label>
+	<label class="required"><span class="label-point">Address</span><br>住所</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="address" name="address" placeholder="" required>
 	</div>
-	<label class="required">最寄り駅</label>
+	<label class="required"><span class="label-point">Nearest station</span><br>最寄り駅</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="station" name="station" required>
 		から徒歩<input class="form-control w-50 mt-1" id="time" name="time" required>
 	</div>
-	<h1 class="heading12" data-number="03">1人目のお子様の情報</h1>
-	<label class="required">名前</label>
+	<h1 class="heading12" data-number="01"><ruby>1人目のお子様の情報<rt>First child information</rt></ruby></h1>
+	<label class="required"><span class="label-point">Name</span><br>名前</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child1name" name="child1name" placeholder="" required>
 	</div>
-	<label class="required">フリガナ</label>
+	<label class="required"><span class="label-point">Furigana</span><br>フリガナ</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child1furigana" name="child1furigana" placeholder="" required>
 	</div>
-	<label class="required">ご家庭での呼び方 (カタカナ入力)</label>
+	<label class="required"><span class="label-point">Nickname</span><br>ご家庭での呼び方（カタカナ）</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child1nickname" name="child1nickname" placeholder="" required>
 	</div>
-	<label class="required">お誕生日</label>
+	<label class="required"><span class="label-point">Birthday</span><br>誕生日</label>
 		<div>
 			<input type="date" class="form-control w-100 mt-1" id="child1birthday" name="child1birthday">
 		</div>
-	<label class="required">性別</label>    
+	<label class="required"><span class="label-point">Sex</span><br>性別</label>  
 		<div>
 			<p class="mt-3"><input  type="radio" name="child1sex" placeholder=""  value="男の子" required>男の子</p>
 			<p class="mt-3"><input  type="radio" name="child1sex" placeholder=""  value="女の子" >女の子</p>
 		</div>
-	<h1 class="heading12" data-number="04">2人目のお子様の情報</h1>
-	<label>名前</label>
+	<h1 class="heading12" data-number="01"><ruby>2人目のお子様の情報<rt>Second child information</rt></ruby></h1>
+	<label><span class="label-point">Name</span><br>名前</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child2name" name="child2name" placeholder="">
 	</div>
-	<label>フリガナ</label>
+	<label><span class="label-point">Furigana</span><br>フリガナ</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child2furigana" name="child2furigana" placeholder="">
 	</div>
-	<label>ご家庭での呼び方 (カタカナ入力)</label>
+	<label><span class="label-point">Nickname</span><br>ご家庭での呼び方（カタカナ）</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child2nickname" name="child2nickname" placeholder="">
 	</div>
-	<label>お誕生日</label>
+	<label><span class="label-point">Birthday</span><br>誕生日</label>
 	<div>
 		<input type="date" class="form-control w-100 mt-1" id="child2birthday" name="child2birthday">
 	</div>
-	<label>性別</label>    
+	<label><span class="label-point">Sex</span><br>性別</label>   
 	<div>
 	<p class="mt-3"><input  type="radio" name="child2sex" placeholder=""  value="男の子" required>男の子</p>
 	<p class="mt-3"><input  type="radio" name="child2sex" placeholder=""  value="女の子" >女の子</p>
 	</div>	    
 		
-	<h1 class="heading12" data-number="05">3人目のお子様の情報</h1>
-	<label>名前</label>
+	<h1 class="heading12" data-number="01"><ruby>3人目のお子様の情報<rt>Third child information</rt></ruby></h1>
+	<label><span class="label-point">Name</span><br>名前</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child3name" name="child3name" placeholder="">
 	</div>
-	<label>フリガナ</label>
+	<label><span class="label-point">Furigana</span><br>フリガナ</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child3furigana" name="child3furigana" placeholder="">
 	</div>
-	<label>ご家庭での呼び方 (カタカナ入力)</label>
+	<label><span class="label-point">Nickname</span><br>ご家庭での呼び方（カタカナ）</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="child3nickname" name="child3nickname" placeholder="">
 	</div>
-	<label>お誕生日</label>
+	<label><span class="label-point">Birthday</span><br>誕生日</label>
 	<div>
 		<input type="date" class="form-control w-100 mt-1" id="child3birthday" name="child3birthday">
 	</div>
-	<label>性別</label>    
+	<label><span class="label-point">Sex</span><br>性別</label>     
 	<div>
 		<p class="mt-3"><input  type="radio" name="child3sex" placeholder=""  value="男の子" required>男の子</p>
 		<p class="mt-3"><input  type="radio" name="child3sex" placeholder=""  value="女の子" >女の子</p>
