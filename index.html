@@ -67,6 +67,11 @@
 			border-bottom: 1px solid #7BCAC6;
 		}
 		
+		.heading12-point {
+		    font-size: 0.6em;
+		    margin-left:  5px;
+		}
+		
 		label {
 			margin-top: 20px;
 			font-size: 1.1em;
@@ -92,23 +97,12 @@
 
 		}
 
-		.h1-point {
-		    font-size: 0.8em;
-		    margin-left:  3.1em;
-		}
 		.label-point {
-		    font-size: 0.7em;
+		    font-size: 0.6em;
 		    margin-left:  5px;
 		}
-		p {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
+		
 	</style>
-	p {
-	margin-top: 0;
-	margin-bottom: 0;
-	}
 </head>
 
 <body>
@@ -117,7 +111,7 @@
 	</div>
 	
 	<form class="w-75 mx-auto"  name="form1">
-		<h1 class="heading12" data-number="01">ご予約内容</h1>
+		<h1 class="heading12" data-number="01">ご予約内容<span class="heading12-point">Reservation contents</span></h1>
 		<label class="required"><span>シッティングタイプ<span class="label-point">Sitting type</span></span></label>
 		<div>
 			<p class="mt-3"><input  type="radio" name="type" placeholder=""  value="単発保育" checked required>単発保育</p>
