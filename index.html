@@ -205,8 +205,9 @@
 				<option value="55">55</option>
 			</select>
 		</div>
-		<label>希望曜日</label>
-		<small>※ 定期保育をご希望の方のみ入力してください</small>
+		<label class="required"><span class="label-point">Desired day of the week</span><br>希望曜日</label>
+		<small>※ 定期保育をご希望の方のみ選択してください</small>
+		<small>※ Please select only if you wish to have regular childcare.</small>
 		<div class="chk">
 			<p class="mt-3"><input type="checkbox" id="Sun" name="dow" value="日"> 日 </p>
 			<p class="mt-3"><input type="checkbox" id="Mon" name="dow" value="月"> 月 </p>
@@ -217,7 +218,7 @@
 			<p class="mt-3"><input type="checkbox" id="Sat" name="dow" value="土"> 土 </p>
 		</div>
 
-	<label class="required">シッティング希望場所</label>
+		<label class="required"><span class="label-point">Place</span><br>シッティング希望場所</label>
 	<div>
 		<input class="form-control w-100 mt-1" id="dePlace" name="dePlace" placeholder="" required>
 	</div>
