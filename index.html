@@ -427,7 +427,7 @@
 
 		// 希望日のチェック
 		if($('input[name="preDate"]').val()==""){
-			arartMsg = "・希望日を入力してください"
+			arartMsg = "・希望日を入力してください<br>(Please enter the desired date)"
 		}
 		arartText = arartMsg;
 		arartMsg = "";
@@ -437,7 +437,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"・定期保育を選択した場合、希望する曜日を必ず選択してください"
+			arartMsg = arartMsg+"・定期保育を選択した場合、希望する曜日を必ず選択してください<br>(If you choose regular childcare, please be sure to select the desired day of the week.)"
 		}
 		arartText = arartText+arartMsg;
 		arartMsg = "";
@@ -447,7 +447,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"・希望言語でその他を選択した場合、その他の言語を記入してください"
+			arartMsg = arartMsg+"・希望言語でその他を選択した場合、その他の言語を記入してください(If you have selected other in language, please enter another language)"
 		}
 		arartText = arartText+arartMsg;
 		arartMsg = "";
@@ -457,7 +457,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"・ペットの有無でいるを選択した場合、ペットの種類を記入してください"
+			arartMsg = arartMsg+"・ペットの有無でいるを選択した場合、ペットの種類を記入してください(If you have a pet, be sure to enter the type of pet)"
 		}
 		arartText = arartText+arartMsg;
 		arartMsg = "";
@@ -467,7 +467,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"・保護者の誕生日を入力してください"
+			arartMsg = arartMsg+"・保護者の誕生日を入力してください<br>(Please enter parent's date of birth)"
 		}
 
 		arartText = arartText + arartMsg;
@@ -478,7 +478,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"・1人目お子様の誕生日を入力してください"
+			arartMsg = arartMsg+"・1人目お子様の誕生日を入力してください<br>(Please enter the date of birth of your first child)"
 		}
 
 		arartText = arartText + arartMsg;
@@ -490,7 +490,7 @@
 				if(arartText!=""){
 					arartMsg = "<br>";
 				}
-				arartMsg = arartMsg+"・2人目お子様の情報を全て入力してください"
+				arartMsg = arartMsg+"・2人目お子様の情報を全て入力してください<br>(Please enter all information for the second child)"
 			}
 		}
 		arartText = arartText + arartMsg;
@@ -502,7 +502,7 @@
 				if(arartText!=""){
 					arartMsg = "<br>";
 				}
-				arartMsg = arartMsg+"・3人目お子様の情報を全て入力してください"
+				arartMsg = arartMsg+"・3人目お子様の情報を全て入力してください<br>(Please enter all information for the third child)"
 			}
 		}
 		arartText = arartText + arartMsg;
