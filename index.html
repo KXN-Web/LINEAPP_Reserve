@@ -405,61 +405,93 @@
 
 		// チェックしてアラートを出す
 		let arartText = "";
-		let perDateArart = "";
-		let birthdayArart = "";
-		let child1birthdayArart = "";
-		let child2Arart = "";
-		let child3Arart = "";
-
+		let arartMsg = "";
+		    
 		// アラートメッセージの初期化
 		$("#inputArrart").html(arartText);
 
 		// 希望日のチェック
 		if($('input[name="preDate"]').val()==""){
-			perDateArart = "希望日を入力してください"
-		}				
+			arartMsg = "希望日を入力してください"
+		}
+		arartText = arartMsg;
+		arartMsg = "";
+		    
+		// 定期保育の場合曜日のチェック
+		if($('input:radio[name="type"]:checked').val()=="定期保育" && yobivalue==""){
+			if(arartText!=""){
+				arartMsg = "<br>";
+			}
+			arartMsg = arartMsg+"定期保育を選択した場合、希望する曜日を必ず選択してください"
+		}
+		arartText = arartText+arartMsg;
+		arartMsg = "";
+				
+		// 言語でその他を選択した場合
+		if($('input:radio[name="lang"]:checked').val()=="その他" && $('input[name="langOther"]').val()==""){
+			if(arartText!=""){
+				arartMsg = "<br>";
+			}
+			arartMsg = arartMsg+"希望言語でその他を選択した場合、その他の言語を記入してください"
+		}
+		arartText = arartText+arartMsg;
+		arartMsg = "";
+		
+		// ペットがいる場合
+		if($('input:radio[name="pet"]:checked').val()=="いる" && $('input[name="petKinds"]').val()==""){
+			if(arartText!=""){
+				arartMsg = "<br>";
+			}
+			arartMsg = arartMsg+"ペットの有無でいるを選択した場合、ペットの種類を記入してください"
+		}
+		arartText = arartText+arartMsg;
+		arartMsg = "";
+				
 		// 誕生日のチェック
 		if($('input[name="birthday"]').val()==""){
-			if(perDateArart!=""){
-				birthdayArart = "<br>";
+			if(arartMsg!=""){
+				arartMsg = "<br>";
 			}
-			birthdayArart = birthdayArart+"保護者の誕生日を入力してください"
+			arartMsg = arartMsg+"保護者の誕生日を入力してください"
 		}
 
-		arartText = perDateArart + birthdayArart;
+		arartText = arartText + arartMsg;
+		arartMsg = "";
 
 		// 子供1誕生日のチェック
 		if($('input[name="child1birthday"]').val()==""){
 			if(arartText!=""){
-				child1birthdayArart = "<br>";
+				arartMsg = "<br>";
 			}
-			child1birthdayArart = child1birthdayArart+"1人目お子様の誕生日を入力してください"
+			arartMsg = arartMsg+"1人目お子様の誕生日を入力してください"
 		}
 
-		arartText = arartText + child1birthdayArart;
+		arartText = arartText + arartMsg;
+		arartMsg = "";
 
 		// 子供2のチェック
 		if($('input[name="child2name"]').val()!=""||$('input[name="child2furigana"]').val()!=""||$('input[name="child2nickname"]').val()!=""||$('input[name="child2birthday"]').val()!=""){
 			if($('input[name="child2name"]').val()==""||$('input[name="child2furigana"]').val()==""||$('input[name="child2nickname"]').val()==""||$('input[name="child2birthday"]').val()==""){
 				if(arartText!=""){
-					child2Arart = "<br>";
+					arartMsg = "<br>";
 				}
-				child2Arart = child2Arart+"2人目お子様の情報を全て入力してください"
+				arartMsg = arartMsg+"2人目お子様の情報を全て入力してください"
 			}
 		}
-		arartText = arartText + child2Arart;
+		arartText = arartText + arartMsg;
+		arartMsg = "";
 
 		// 子供3のチェック
 		if($('input[name="child3name"]').val()!=""||$('input[name="child3furigana"]').val()!=""||$('input[name="child3nickname"]').val()!=""||$('input[name="child3birthday"]').val()!=""){
 			if($('input[name="child3name"]').val()==""||$('input[name="child3furigana"]').val()==""||$('input[name="child3nickname"]').val()==""||$('input[name="child3birthday"]').val()==""){
 				if(arartText!=""){
-					child3Arart = "<br>";
+					arartMsg = "<br>";
 				}
-				child3Arart = child2Arart+"3人目お子様の情報を全て入力してください"
+				arartMsg = arartMsg+"3人目お子様の情報を全て入力してください"
 			}
 		}
-		arartText = arartText + child3Arart;
-
+		arartText = arartText + arartMsg;
+		arartMsg = "";
 
 		if(arartText!=""){
 			$("#inputArrart").html(arartText);
