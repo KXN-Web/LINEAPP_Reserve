@@ -412,7 +412,7 @@
 
 		// 希望日のチェック
 		if($('input[name="preDate"]').val()==""){
-			arartMsg = "希望日を入力してください"
+			arartMsg = "・希望日を入力してください"
 		}
 		arartText = arartMsg;
 		arartMsg = "";
@@ -422,7 +422,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"定期保育を選択した場合、希望する曜日を必ず選択してください"
+			arartMsg = arartMsg+"・定期保育を選択した場合、希望する曜日を必ず選択してください"
 		}
 		arartText = arartText+arartMsg;
 		arartMsg = "";
@@ -432,7 +432,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"希望言語でその他を選択した場合、その他の言語を記入してください"
+			arartMsg = arartMsg+"・希望言語でその他を選択した場合、その他の言語を記入してください"
 		}
 		arartText = arartText+arartMsg;
 		arartMsg = "";
@@ -442,17 +442,17 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"ペットの有無でいるを選択した場合、ペットの種類を記入してください"
+			arartMsg = arartMsg+"・ペットの有無でいるを選択した場合、ペットの種類を記入してください"
 		}
 		arartText = arartText+arartMsg;
 		arartMsg = "";
 				
 		// 誕生日のチェック
 		if($('input[name="birthday"]').val()==""){
-			if(arartMsg!=""){
+			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"保護者の誕生日を入力してください"
+			arartMsg = arartMsg+"・保護者の誕生日を入力してください"
 		}
 
 		arartText = arartText + arartMsg;
@@ -463,7 +463,7 @@
 			if(arartText!=""){
 				arartMsg = "<br>";
 			}
-			arartMsg = arartMsg+"1人目お子様の誕生日を入力してください"
+			arartMsg = arartMsg+"・1人目お子様の誕生日を入力してください"
 		}
 
 		arartText = arartText + arartMsg;
@@ -475,7 +475,7 @@
 				if(arartText!=""){
 					arartMsg = "<br>";
 				}
-				arartMsg = arartMsg+"2人目お子様の情報を全て入力してください"
+				arartMsg = arartMsg+"・2人目お子様の情報を全て入力してください"
 			}
 		}
 		arartText = arartText + arartMsg;
@@ -487,7 +487,7 @@
 				if(arartText!=""){
 					arartMsg = "<br>";
 				}
-				arartMsg = arartMsg+"3人目お子様の情報を全て入力してください"
+				arartMsg = arartMsg+"・3人目お子様の情報を全て入力してください"
 			}
 		}
 		arartText = arartText + arartMsg;
