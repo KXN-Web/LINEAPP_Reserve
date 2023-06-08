@@ -157,16 +157,16 @@
 			</select><br>
 			から<br>
 			<select name="eTimeH">
-				<option value="0">0</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
+				<option value="00">00</option>
+				<option value="01">01</option>
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
 				<option value="10">10</option>
 				<option value="11">11</option>
 				<option value="12">12</option>
@@ -184,8 +184,8 @@
 			</select>
 			:
 			<select name="eTimeM">
-				<option value="0">0</option>
-				<option value="5">5</option>
+				<option value="00">00</option>
+				<option value="05">05</option>
 				<option value="10">10</option>
 				<option value="15">15</option>
 				<option value="20">20</option>
@@ -276,15 +276,15 @@
 	<h1 class="heading12" data-number="03">1人目のお子様の情報</h1>
 	<label class="required">名前</label>
 	<div>
-		<input class="form-control w-100 mt-1" id="child1name" name="child1name" placeholder="">
+		<input class="form-control w-100 mt-1" id="child1name" name="child1name" placeholder="" required>
 	</div>
 	<label class="required">フリガナ</label>
 	<div>
-		<input class="form-control w-100 mt-1" id="child1furigana" name="child1furigana" placeholder="">
+		<input class="form-control w-100 mt-1" id="child1furigana" name="child1furigana" placeholder="" required>
 	</div>
 	<label class="required">ご家庭での呼び方 (カタカナ入力)</label>
 	<div>
-		<input class="form-control w-100 mt-1" id="child1nickname" name="child1nickname" placeholder="">
+		<input class="form-control w-100 mt-1" id="child1nickname" name="child1nickname" placeholder="" required>
 	</div>
 	<label class="required">お誕生日</label>
 		<div>
@@ -394,78 +394,115 @@
 
         $(function () {
             $('form').submit(function () {
-				// 曜日取得
-				let yobivalue= "";
-				$('input[name=dow]:checked').each(function() {
-					if(yobivalue!=""){
-						yobivalue = yobivalue + ",";
-					}
-					yobivalue = yobivalue + $(this).val();
-				});
-				
-				// チェックしてアラートを出す
-				let arartText = "";
-				let perDateArart = "";
-				let birthdayArart = "";
-				
-				// 希望日のチェック
-				if($('input[name="preDate"]').val()==""){
-					perDateArart = "希望日を入力してください"
-				}				
-				// 誕生日のチェック
-				if($('input[name="birthday"]').val()==""){
-					if(perDateArart!=""){
-						birthdayArart = "<br>";
-					}
-					birthdayArart = birthdayArart+"保護者の誕生日を入力してください"
-				}
-				arartText = perDateArart + birthdayArart;
-				
+		// 曜日取得
+		let yobivalue= "";
+		$('input[name=dow]:checked').each(function() {
+			if(yobivalue!=""){
+				yobivalue = yobivalue + ",";
+			}
+			yobivalue = yobivalue + $(this).val();
+		});
+
+		// チェックしてアラートを出す
+		let arartText = "";
+		let perDateArart = "";
+		let birthdayArart = "";
+		let child1birthdayArart = "";
+		let child2Arart = "";
+		let child3Arart = "";
+
+		// 希望日のチェック
+		if($('input[name="preDate"]').val()==""){
+			perDateArart = "希望日を入力してください"
+		}				
+		// 誕生日のチェック
+		if($('input[name="birthday"]').val()==""){
+			if(perDateArart!=""){
+				birthdayArart = "<br>";
+			}
+			birthdayArart = birthdayArart+"保護者の誕生日を入力してください"
+		}
+
+		arartText = perDateArart + birthdayArart;
+
+		// 子供1誕生日のチェック
+		if($('input[name="child1birthday"]').val()==""){
+			if(arartText!=""){
+				child1birthdayArart = "<br>";
+			}
+			child1birthdayArart = child1birthdayArart+"1人目お子様の誕生日を入力してください"
+		}
+
+		arartText = arartText + child1birthdayArart;
+
+		// 子供2のチェック
+		if($('input[name="child2name"]').val()!=""||'input[name="child2furigana"]').val()!=""||'input[name="child2nickname"]').val()!=""||'input[name="child2birthday"]').val()!=""){
+			if($('input[name="child2name"]').val()==""||'input[name="child2furigana"]').val()==""||'input[name="child2nickname"]').val()==""||'input[name="child2birthday"]').val()==""){
 				if(arartText!=""){
-					$("#inputArrart").html(arartText);
-					document.getElementById('inputArrart').classList.add('inputArrartShow');
-					return false;
+					child2Arart = "<br>";
 				}
+				child2Arart = child2Arart+"2人目お子様の情報を全て入力してください"
+			}
+		}
+		arartText = arartText + child2Arart;
 
-				const name    = $('input[name="name"]').val();
-				const furigana = $('input[name="furigana"]').val();
-				const type    = $('input:radio[name="type"]:checked').val();
-				const preDate = $('input[name="preDate"]').val();
-				const sTime = $('[name=sTimeH]').val() + ":" + $('[name=sTimeM]').val();
-				const eTime = $('[name=eTimeH]').val() + ":" + $('[name=eTimeM]').val();
-				const yobi = yobivalue;
-				const lang = $('input:radio[name="lang"]:checked').val();
-				const langOther = $('input[name="langOther"]').val();
-				const pet = $('input:radio[name="pet"]:checked').val();
-				const petKinds = $('input[name="petKinds"]').val();
-				const biko = $('textarea[name="biko"]').val();
-				const birthday = $('input[name="birthday"]').val();
-				const phoneNo  = $('input[name="phoneNo"]').val();
-				const email  = $('input[name="email"]').val();
-				const address = $('input[name="address"]').val();
-				const station = $('input[name="station"]').val();
-				const time = $('input[name="time"]').val();
-				const child1name = $('input[name="child1name"]').val();
-				const child1furigana = $('input[name="child1furigana"]').val();
-				const child1nickname = $('input[name="child1nickname"]').val();
-				const child1birthday = $('input[name="child1birthday"]').val();
-				const child1sex = $('input:radio[name="child1sex"]:checked').val();
-				const child2name = $('input[name="child2name"]').val();
-				const child2furigana = $('input[name="child2furigana"]').val();
-				const child2nickname = $('input[name="child2nickname"]').val();
-				const child2birthday = $('input[name="child2birthday"]').val();
-				const child2sex = $('input:radio[name="child2sex"]:checked').val();
-				const child3name = $('input[name="child3name"]').val();
-				const child3furigana = $('input[name="child3furigana"]').val();
-				const child3nickname = $('input[name="child3nickname"]').val();
-				const child3birthday = $('input[name="child3birthday"]').val();
-				const child3sex = $('input:radio[name="child3sex"]:checked').val();
+		// 子供3のチェック
+		if($('input[name="child3name"]').val()!=""||'input[name="child3furigana"]').val()!=""||'input[name="child3nickname"]').val()!=""||'input[name="child3birthday"]').val()!=""){
+			if($('input[name="child3name"]').val()==""||'input[name="child3furigana"]').val()==""||'input[name="child3nickname"]').val()==""||'input[name="child3birthday"]').val()==""){
+				if(arartText!=""){
+					child3Arart = "<br>";
+				}
+				child2Arart = child2Arart+"3人目お子様の情報を全て入力してください"
+			}
+		}
+		arartText = arartText + child3Arart;
 
-				const msg = `【区分】ご予約\n【氏名】${name}\n【フリガナ】${furigana}\n【タイプ】${type}\n【希望日時】${preDate}\n【開始】${sTime}\n【終了】${eTime}\n【曜日】${yobi}\n【言語】${lang}\n【その他言語】${langOther}\n【ペット】${pet}\n【ペットの種類】${petKinds}\n【備考】${biko}\n【生年月日】${birthday}\n【電話番号】${phoneNo}\n【メールアドレス】${email}\n【住所】${address}\n【最寄り駅】${station}\n【徒歩】${time}\n【1人目のお名前】${child1name}\n【フリガナ】${child1furigana}\n【呼び方】${child1nickname}\n【誕生日】${child1birthday}\n【性別】${child1sex}\n【2人目のお名前】${child2name}\n【フリガナ】${child2furigana}\n【呼び方】${child2nickname}\n【誕生日】${child2birthday}\n【性別】${child2sex}\n【3人目のお名前】${child3name}\n【フリガナ】${child3furigana}\n【呼び方】${child3nickname}\n【誕生日】${child3birthday}\n【性別】${child3sex}`;
 
-				alert(msg);
-				sendText(msg);
-				return false;
+		if(arartText!=""){
+			$("#inputArrart").html(arartText);
+			document.getElementById('inputArrart').classList.add('inputArrartShow');
+			return false;
+		}
+
+		const name    = $('input[name="name"]').val();
+		const furigana = $('input[name="furigana"]').val();
+		const type    = $('input:radio[name="type"]:checked').val();
+		const preDate = $('input[name="preDate"]').val();
+		const sTime = $('[name=sTimeH]').val() + ":" + $('[name=sTimeM]').val();
+		const eTime = $('[name=eTimeH]').val() + ":" + $('[name=eTimeM]').val();
+		const yobi = yobivalue;
+		const lang = $('input:radio[name="lang"]:checked').val();
+		const langOther = $('input[name="langOther"]').val();
+		const pet = $('input:radio[name="pet"]:checked').val();
+		const petKinds = $('input[name="petKinds"]').val();
+		const biko = $('textarea[name="biko"]').val();
+		const birthday = $('input[name="birthday"]').val();
+		const phoneNo  = $('input[name="phoneNo"]').val();
+		const email  = $('input[name="email"]').val();
+		const address = $('input[name="address"]').val();
+		const station = $('input[name="station"]').val();
+		const time = $('input[name="time"]').val();
+		const child1name = $('input[name="child1name"]').val();
+		const child1furigana = $('input[name="child1furigana"]').val();
+		const child1nickname = $('input[name="child1nickname"]').val();
+		const child1birthday = $('input[name="child1birthday"]').val();
+		const child1sex = $('input:radio[name="child1sex"]:checked').val();
+		const child2name = $('input[name="child2name"]').val();
+		const child2furigana = $('input[name="child2furigana"]').val();
+		const child2nickname = $('input[name="child2nickname"]').val();
+		const child2birthday = $('input[name="child2birthday"]').val();
+		const child2sex = $('input:radio[name="child2sex"]:checked').val();
+		const child3name = $('input[name="child3name"]').val();
+		const child3furigana = $('input[name="child3furigana"]').val();
+		const child3nickname = $('input[name="child3nickname"]').val();
+		const child3birthday = $('input[name="child3birthday"]').val();
+		const child3sex = $('input:radio[name="child3sex"]:checked').val();
+
+		const msg = `【区分】ご予約\n【氏名】${name}\n【フリガナ】${furigana}\n【タイプ】${type}\n【希望日時】${preDate}\n【開始】${sTime}\n【終了】${eTime}\n【曜日】${yobi}\n【言語】${lang}\n【その他言語】${langOther}\n【ペット】${pet}\n【ペットの種類】${petKinds}\n【備考】${biko}\n【生年月日】${birthday}\n【電話番号】${phoneNo}\n【メールアドレス】${email}\n【住所】${address}\n【最寄り駅】${station}\n【徒歩】${time}\n【1人目のお名前】${child1name}\n【フリガナ】${child1furigana}\n【呼び方】${child1nickname}\n【誕生日】${child1birthday}\n【性別】${child1sex}\n【2人目のお名前】${child2name}\n【フリガナ】${child2furigana}\n【呼び方】${child2nickname}\n【誕生日】${child2birthday}\n【性別】${child2sex}\n【3人目のお名前】${child3name}\n【フリガナ】${child3furigana}\n【呼び方】${child3nickname}\n【誕生日】${child3birthday}\n【性別】${child3sex}`;
+
+		alert(msg);
+		sendText(msg);
+		return false;
             });
         });
 
