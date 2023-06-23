@@ -415,15 +415,12 @@
         $(function () {
             $('form').submit(function () {
 
-		alert("start！！");
 		// 日時未定取得
 		let mitei = "";
 		$('input[name=dateNone]:checked').each(function() {
 			mitei = $(this).val();
 		});
-		
-		alert(mitei);
-		    
+				    
 		// 曜日取得
 		let yobivalue= "";
 		$('input[name=dow]:checked').each(function() {
@@ -442,6 +439,7 @@
 
 
 		// 日時未定が未チェックの場合
+		let kibobivalue = ""; 
 		if(mitei == ""){
 			// 希望日のチェック
 			if($('input[name="preDate"]').val()==""){
@@ -459,6 +457,11 @@
 			}
 			arartText = arartText+arartMsg;
 			arartMsg = "";
+			
+			kibobivalue = $('input[name="preDate"]').val();
+			
+		}else{
+			kibobivalue = "未定";
 		}
 				
 		// 言語でその他を選択した場合
@@ -536,7 +539,7 @@
 		const name    = $('input[name="name"]').val();
 		const furigana = $('input[name="furigana"]').val();
 		const type    = $('input:radio[name="type"]:checked').val();
-		const preDate = $('input[name="preDate"]').val();
+		const preDate = kibobivalue;
 		const sTime = $('[name=sTimeH]').val() + ":" + $('[name=sTimeM]').val();
 		const eTime = $('[name=eTimeH]').val() + ":" + $('[name=eTimeM]').val();
 		const yobi = yobivalue;
