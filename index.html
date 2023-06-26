@@ -574,8 +574,9 @@
 		const child3birthday = $('input[name="child3birthday"]').val();
 		const child3sex = $('input:radio[name="child3sex"]:checked').val();
 		const coupon = $('input[name="coupon"]').val();
+		const dePlace = $('input[name="dePlace"]').val();
 
-		const msg = `【区分】ご予約\n【氏名】${name}\n【フリガナ】${furigana}\n【タイプ】${type}\n【希望日時】${preDate}\n【開始】${sTime}\n【終了】${eTime}\n【曜日】${yobi}\n【言語】${lang}\n【その他言語】${langOther}\n【ペット】${pet}\n【ペットの種類】${petKinds}\n【備考】${biko}\n【クーポンコード】${coupon}\n【生年月日】${birthday}\n【電話番号】${phoneNo}\n【メールアドレス】${email}\n【住所】${address}\n【最寄り駅】${station}\n【徒歩】${time}\n【1人目のお名前】${child1name}\n【フリガナ】${child1furigana}\n【呼び方】${child1nickname}\n【誕生日】${child1birthday}\n【性別】${child1sex}\n【2人目のお名前】${child2name}\n【フリガナ】${child2furigana}\n【呼び方】${child2nickname}\n【誕生日】${child2birthday}\n【性別】${child2sex}\n【3人目のお名前】${child3name}\n【フリガナ】${child3furigana}\n【呼び方】${child3nickname}\n【誕生日】${child3birthday}\n【性別】${child3sex}`;
+		const msg = `【区分】ご予約\n【氏名】${name}\n【フリガナ】${furigana}\n【タイプ】${type}\n【希望日時】${preDate}\n【開始】${sTime}\n【終了】${eTime}\n【曜日】${yobi}\n【希望場所】${dePlace}\n【言語】${lang}\n【その他言語】${langOther}\n【ペット】${pet}\n【ペットの種類】${petKinds}\n【備考】${biko}\n【クーポンコード】${coupon}\n【生年月日】${birthday}\n【電話番号】${phoneNo}\n【メールアドレス】${email}\n【住所】${address}\n【最寄り駅】${station}\n【徒歩】${time}\n【1人目のお名前】${child1name}\n【フリガナ】${child1furigana}\n【呼び方】${child1nickname}\n【誕生日】${child1birthday}\n【性別】${child1sex}\n【2人目のお名前】${child2name}\n【フリガナ】${child2furigana}\n【呼び方】${child2nickname}\n【誕生日】${child2birthday}\n【性別】${child2sex}\n【3人目のお名前】${child3name}\n【フリガナ】${child3furigana}\n【呼び方】${child3nickname}\n【誕生日】${child3birthday}\n【性別】${child3sex}`;
 
 		//alert(msg);
 		sendText(msg);
