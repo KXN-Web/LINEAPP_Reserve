@@ -7,102 +7,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
-    <title>【ケーバイエヌ】ご予約フォーム</title>
-	<style>
-		/* Loading Block */
-		#loading {
-		  width: 100vw;
-		  height: 100vh;
-		  transition: all 1s;
-		  background-color: #fff;
-		  position: fixed;
-		  top: 0;
-		  left: 0;
-		  z-index: 9999;
-		}
-		.spinner {
-		  width: 100px;
-		  height: 100px;
-		  margin: 200px auto;
-		  background-color: #7BCAC6;
-		  border-radius: 100%;
-		  animation: sk-scaleout 1.0s infinite ease-in-out;
-		}
-		/* Loading Animation */
-		@keyframes sk-scaleout {
-		  0% {
-			transform: scale(0);
-		  } 100% {
-			transform: scale(1.0);
-			opacity: 0;
-		  }
-		}
+	<link rel="stylesheet" href="style.css">
 
-		/* Hide Loading Block */
-		.loaded {
-		  opacity: 0;
-		  visibility: hidden;
-		}
-		.inputArrartShow {
-			opacity: 1;
-			visibility: visible;
-		}
-		.inputArrart {
-		  opacity: 0;
-		  visibility: hidden;
-		}
-		
-		.heading12 {
-		  	margin-top: 20px;
-			font-size: 1.2em;
-			position: relative;
-		}
+	<title>【ケーバイエヌ】ご予約フォーム</title>
 
-		.heading12::before {
-			content: attr(data-number);
-			display: inline-block;
-			margin-right: 20px;
-			color: #7BCAC6;
-			font-size: 30px;
-			border-bottom: 1px solid #7BCAC6;
-		}
-		
-		.heading12-point {
-		    font-size: 0.6em;
-		    margin-left:  5px;
-		}
-		
-		label {
-			margin-top: 20px;
-			font-size: 1.1em;
-			display: block;
-			color: #7BCAC6;/*文字色*/
-			/*線の種類（点線）2px 線色*/
-			border-bottom: dashed 2px #7BCAC6;
-		}
-
-		label.required:after {
-			margin-left: 1.0em;
-			padding: 0px 6px 0px 6px;
-			border-radius: 4px;
-			font-size: 0.6em;
-			color: white;
-			background-color: #C44;
-			content: "必須";
-		}
-		.label-point {
-		    font-size: 0.7em;
-		}
-		.radio-point {
-			margin-left:18px;
-			font-size: 0.5em;
-		}
-
-		.chk p {
-			margin-button:0px;
-		  	display: inline-block;
-		}		
-	</style>
 </head>
 <body>
 	<div id="loading">
@@ -111,6 +19,18 @@
 	
 	<form class="w-75 mx-auto"  name="form1">
 		<h1 class="heading12" data-number="01"><ruby>ご予約内容<rt>Reservation contents</rt></ruby></h1>
+
+		<label ><span class="label-point">Reservations in case of illness</span><br>体調不良時のご予約について</label>
+		<div>
+			<ul class="attentionList">
+				<li>必ず備考へ詳細をご記入ください（Please be sure to enter details in the Remarks section.）
+					<ol>病名（風邪・インフルエンザなど）（Name of illness (cold, flu, etc.)）</ol>
+					<ol>発熱の状況（Body temperature）</ol>
+					<ol>その他の症状（Other symptoms）</ol>
+				</li>
+				<li>ご予約完了後に発覚した場合、ご依頼をキャンセルさせていただく場合がございます<br>（If we find out after the reservation is completed, we may cancel your request.）</li>
+			</ul>			
+		</div>
 		<label class="required"><span class="label-point">Sitting type</span><br>シッティングタイプ</label>
 		<div>
 			<p><span class="radio-point">One-time childcare</span><br><input  type="radio" name="type" placeholder=""  value="単発保育" checked required>単発保育</p>
@@ -118,12 +38,13 @@
 			<p><span class="radio-point">Pick-up and childcare</span><br><input  type="radio" name="type" placeholder=""  value="送迎保育">送迎保育</p>
 		</div>
 		<label class="required"><span class="label-point">Preferred date</span><br>希望日時</label>
-		<small>※ 定期保育をご希望の方は開始希望日時を入力してください</small><br>
-		<small>   (If you would like regular childcare, please enter the date and time you would like to start.)</small><br>
-		<small>※ 希望日が未定の場合は、希望日未定にチェックを入れてください</small><br>
-		<small>※ (If the desired date is undecided, please check the desired date undecided.)</small><br>
+		<ul class="descriptionList">
+			<li>定期保育をご希望の方は開始希望日時を入力してください<br>(If you would like regular childcare, please enter the date and time you would like to start.)</li>
+			<li>希望日が未定の場合は、希望日未定にチェックを入れてください<br>(If the desired date is undecided, please check the desired date undecided.)</li>
+			<li>記入された日付以外のシッティングでもいい場合は「希望日未定・別日でも可」をチェックしてください<br>（If you are willing to sit on a date other than the date indicated, please check "Undecided".）</li>
+		</ul>
 		<div class="chk">
-			<p class="mt-3"><input type="checkbox" id="None" name="dateNone" value="希望日未定"><ruby> 希望日未定 <rt>Undecided</rt></ruby></p>
+			<p class="mt-3"><input type="checkbox" id="None" name="dateNone" value="希望日未定"><ruby> 希望日未定・別日でも可 <rt>Undecided</rt></ruby></p>
 		</div>
 		<div class="perDateCon">
 		<input type="date" class="form-control w-100 mt-1" id="preDate" name="preDate" />
@@ -159,17 +80,9 @@
 			:
 			<select name="sTimeM">
 				<option value="00">00</option>
-				<option value="05">05</option>
-				<option value="10">10</option>
 				<option value="15">15</option>
-				<option value="20">20</option>
-				<option value="25">25</option>
 				<option value="30">30</option>
-				<option value="35">35</option>
-				<option value="40">40</option>
 				<option value="45">45</option>
-				<option value="50">50</option>
-				<option value="55">55</option>
 			</select>
 			<br>～<br>
 			<select name="eTimeH">
@@ -201,22 +114,15 @@
 			:
 			<select name="eTimeM">
 				<option value="00">00</option>
-				<option value="05">05</option>
-				<option value="10">10</option>
 				<option value="15">15</option>
-				<option value="20">20</option>
-				<option value="25">25</option>
 				<option value="30">30</option>
-				<option value="35">35</option>
-				<option value="40">40</option>
 				<option value="45">45</option>
-				<option value="50">50</option>
-				<option value="55">55</option>
 			</select>
 		</div>
 		<label class="required"><span class="label-point">Desired day of the week</span><br>希望曜日</label>
-		<small>※ 定期保育をご希望の方のみ選択してください</small><br>
-		<small>※ Please select only if you wish to have regular childcare.</small>
+		<ul class="descriptionList">
+			<li>定期保育をご希望の方のみ選択してください<br>（Please select only if you wish to use the regular childcare service.）</li>
+		</ul>
 		<div class="chk">
 			<p class="mt-3"><input type="checkbox" id="Sun" name="dow" value="日"><ruby> 日 <rt>Sun</rt></ruby></p>
 			<p class="mt-3"><input type="checkbox" id="Mon" name="dow" value="月"><ruby> 月 <rt>Mon</rt></ruby></p>
@@ -233,6 +139,13 @@
 	</div>
 
 	<label class="required"><span class="label-point">Language</span><br>言語</label>
+	<ul class="descriptionList">
+		<li>ご希望に添えない場合もございます<br>（We may not be able to meet your request.）</li>
+		<li>ご意向がある場合は備考へご記入ください<br>（If you have any intention, please enter it in the remarks）
+			<ol>必ずバイリンガル保育してほしい<br>（I want bilingual childcare without fail）</ol>
+			<ol>できれば英語保育にしたい　など<br>（Preferably English-language childcare, etc.）</ol>
+		</li>
+	</ul>
 	<div>
 		<p class="mt-3"><span class="radio-point">Japanese</span><br><input  type="radio" name="lang" placeholder=""  value="日本語" checked required>日本語</p></p>
 		<p class="mt-3"><span class="radio-point">English</span><br><input  type="radio" name="lang" placeholder=""  value="英語" >英語</p>
@@ -258,6 +171,18 @@
 
 	<label><span class="label-point">Remarks</span><br>備考</label>
 	<div>
+		<ul class="descriptionList">
+			<li style="color: red;"><b>体調不良時のご予約の場合は、必ず詳細をご記入ください</b><br>（If you are making an appointment for a physical condition, please provide details）
+				<ol>病名（風邪・インフルエンザなど）（Name of illness (cold, flu, etc.)）</ol>
+				<ol>発熱の状況（Body temperature）</ol>
+				<ol>その他の症状（Other symptoms）</ol>
+		</li>
+			<li>ご予約内容に関して、詳細なご意向がある場合はご記入ください<br>（Please indicate if you have any detailed preferences regarding your reservation）
+				<ol>必ずバイリンガル保育してほしい<br>（I want bilingual childcare without fail）</ol>
+				<ol>なるべく希望した曜日がいいが、別の曜日でも可　など（Preferably on the requested day of the week, but other days are also acceptable, etc.）</ol>
+			</li>
+		</ul>
+	
 		<textarea class="form-control" id="exampleFormControlTextarea1"  id="biko" name="biko" rows="3" ></textarea>
 	</div>
 	<label><span class="label-point">coupon</span><br>クーポンコード</label>
@@ -376,252 +301,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            const liffId = "1661328491-NK747zok";
-            initializeLiff(liffId);
-        })
-        
-        liff.ready.then(() => {
-          if (!liff.isLoggedIn()) {
-            liff.login();
-          }
-			const idToken = liff.getDecodedIDToken();
-			const userId = idToken.sub;
-			getData(userId);
-        })        
-        
-        function initializeLiff(liffId) {
-            liff.init({
-                liffId: liffId
-            }).then(() => {
-                initializeApp();
-            }).catch((err) => {
-                console.log('LIFF Initialization failed ', err);
-            });
-        }
-
-        function sendText(text) {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': text
-            }]).then(function () {
-                liff.closeWindow();
-            }).catch(function (error) {
-                window.alert('Failed to send message ' + error);
-            });
-        }
-
-        const params = (new URL(document.location)).searchParams;
-        const key = params.get('key');
-
-        $(function () {
-            $('form').submit(function () {
-
-		// 日時未定取得
-		let mitei = "";
-		$('input[name=dateNone]:checked').each(function() {
-			mitei = $(this).val();
-		});
-				    
-		// 曜日取得
-		let yobivalue= "";
-		$('input[name=dow]:checked').each(function() {
-			if(yobivalue!=""){
-				yobivalue = yobivalue + ",";
-			}
-			yobivalue = yobivalue + $(this).val();
-		});
-
-		// チェックしてアラートを出す
-		let arartText = "";
-		let arartMsg = "";
-		    
-		// アラートメッセージの初期化
-		$("#inputArrart").html(arartText);
-
-
-		// 日時未定が未チェックの場合
-		let kibobivalue = ""; 
-		if(mitei == ""){
-			// 希望日のチェック
-			if($('input[name="preDate"]').val()==""){
-				arartMsg = "・希望日を入力してください<br>(Please enter the desired date)"
-			}
-			arartText = arartMsg;
-			arartMsg = "";
-			    
-			// 定期保育の場合曜日のチェック
-			if($('input:radio[name="type"]:checked').val()=="定期保育" && yobivalue==""){
-				if(arartText!=""){
-					arartMsg = "<br>";
-				}
-				arartMsg = arartMsg+"・定期保育を選択した場合、希望する曜日を必ず選択してください<br>(If you choose regular childcare, please be sure to select the desired day of the week.)"
-			}
-			arartText = arartText+arartMsg;
-			arartMsg = "";
-			
-			kibobivalue = $('input[name="preDate"]').val();
-			
-		}else{
-			kibobivalue = "未定";
-		}
-				
-		// 言語でその他を選択した場合
-		if($('input:radio[name="lang"]:checked').val()=="その他" && $('input[name="langOther"]').val()==""){
-			if(arartText!=""){
-				arartMsg = "<br>";
-			}
-			arartMsg = arartMsg+"・希望言語でその他を選択した場合、その他の言語を記入してください<br>(If you have selected other in language, please enter another language)"
-		}
-		arartText = arartText+arartMsg;
-		arartMsg = "";
-		
-		// ペットがいる場合
-		if($('input:radio[name="pet"]:checked').val()=="いる" && $('input[name="petKinds"]').val()==""){
-			if(arartText!=""){
-				arartMsg = "<br>";
-			}
-			arartMsg = arartMsg+"・ペットの有無でいるを選択した場合、ペットの種類を記入してください<br>(If you have a pet, be sure to enter the type of pet)"
-		}
-		arartText = arartText+arartMsg;
-		arartMsg = "";
-				
-		// 誕生日のチェック
-		if($('input[name="birthday"]').val()==""){
-			if(arartText!=""){
-				arartMsg = "<br>";
-			}
-			arartMsg = arartMsg+"・保護者の誕生日を入力してください<br>(Please enter parent's date of birth)"
-		}
-
-		arartText = arartText + arartMsg;
-		arartMsg = "";
-
-		// 子供1誕生日のチェック
-		if($('input[name="child1birthday"]').val()==""){
-			if(arartText!=""){
-				arartMsg = "<br>";
-			}
-			arartMsg = arartMsg+"・1人目お子様の誕生日を入力してください<br>(Please enter the date of birth of your first child)"
-		}
-
-		arartText = arartText + arartMsg;
-		arartMsg = "";
-
-		// 子供2のチェック
-		if($('input[name="child2name"]').val()!=""||$('input[name="child2furigana"]').val()!=""||$('input[name="child2nickname"]').val()!=""||$('input[name="child2birthday"]').val()!=""){
-			if($('input[name="child2name"]').val()==""||$('input[name="child2furigana"]').val()==""||$('input[name="child2nickname"]').val()==""||$('input[name="child2birthday"]').val()==""){
-				if(arartText!=""){
-					arartMsg = "<br>";
-				}
-				arartMsg = arartMsg+"・2人目お子様の情報を全て入力してください<br>(Please enter all information for the second child)"
-			}
-		}
-		arartText = arartText + arartMsg;
-		arartMsg = "";
-
-		// 子供3のチェック
-		if($('input[name="child3name"]').val()!=""||$('input[name="child3furigana"]').val()!=""||$('input[name="child3nickname"]').val()!=""||$('input[name="child3birthday"]').val()!=""){
-			if($('input[name="child3name"]').val()==""||$('input[name="child3furigana"]').val()==""||$('input[name="child3nickname"]').val()==""||$('input[name="child3birthday"]').val()==""){
-				if(arartText!=""){
-					arartMsg = "<br>";
-				}
-				arartMsg = arartMsg+"・3人目お子様の情報を全て入力してください<br>(Please enter all information for the third child)"
-			}
-		}
-		arartText = arartText + arartMsg;
-		arartMsg = "";
-
-		if(arartText!=""){
-			$("#inputArrart").html(arartText);
-			document.getElementById('inputArrart').classList.add('inputArrartShow');
-			return false;
-		}
-
-		const name    = $('input[name="name"]').val();
-		const furigana = $('input[name="furigana"]').val();
-		const type    = $('input:radio[name="type"]:checked').val();
-		const preDate = kibobivalue;
-		const sTime = $('[name=sTimeH]').val() + ":" + $('[name=sTimeM]').val();
-		const eTime = $('[name=eTimeH]').val() + ":" + $('[name=eTimeM]').val();
-		const yobi = yobivalue;
-		const lang = $('input:radio[name="lang"]:checked').val();
-		const langOther = $('input[name="langOther"]').val();
-		const pet = $('input:radio[name="pet"]:checked').val();
-		const petKinds = $('input[name="petKinds"]').val();
-		const biko = $('textarea[name="biko"]').val();
-		const birthday = $('input[name="birthday"]').val();
-		const phoneNo  = $('input[name="phoneNo"]').val();
-		const email  = $('input[name="email"]').val();
-		const address = $('input[name="address"]').val();
-		const station = $('input[name="station"]').val();
-		const time = $('input[name="time"]').val();
-		const child1name = $('input[name="child1name"]').val();
-		const child1furigana = $('input[name="child1furigana"]').val();
-		const child1nickname = $('input[name="child1nickname"]').val();
-		const child1birthday = $('input[name="child1birthday"]').val();
-		const child1sex = $('input:radio[name="child1sex"]:checked').val();
-		const child2name = $('input[name="child2name"]').val();
-		const child2furigana = $('input[name="child2furigana"]').val();
-		const child2nickname = $('input[name="child2nickname"]').val();
-		const child2birthday = $('input[name="child2birthday"]').val();
-		const child2sex = $('input:radio[name="child2sex"]:checked').val();
-		const child3name = $('input[name="child3name"]').val();
-		const child3furigana = $('input[name="child3furigana"]').val();
-		const child3nickname = $('input[name="child3nickname"]').val();
-		const child3birthday = $('input[name="child3birthday"]').val();
-		const child3sex = $('input:radio[name="child3sex"]:checked').val();
-		const coupon = $('input[name="coupon"]').val();
-		const dePlace = $('input[name="dePlace"]').val();
-
-		const msg = `【区分】ご予約\n【氏名】${name}\n【フリガナ】${furigana}\n【タイプ】${type}\n【希望日時】${preDate}\n【開始】${sTime}\n【終了】${eTime}\n【曜日】${yobi}\n【希望場所】${dePlace}\n【言語】${lang}\n【その他言語】${langOther}\n【ペット】${pet}\n【ペットの種類】${petKinds}\n【備考】${biko}\n【クーポンコード】${coupon}\n【生年月日】${birthday}\n【電話番号】${phoneNo}\n【メールアドレス】${email}\n【住所】${address}\n【最寄り駅】${station}\n【徒歩】${time}\n【1人目のお名前】${child1name}\n【フリガナ】${child1furigana}\n【呼び方】${child1nickname}\n【誕生日】${child1birthday}\n【性別】${child1sex}\n【2人目のお名前】${child2name}\n【フリガナ】${child2furigana}\n【呼び方】${child2nickname}\n【誕生日】${child2birthday}\n【性別】${child2sex}\n【3人目のお名前】${child3name}\n【フリガナ】${child3furigana}\n【呼び方】${child3nickname}\n【誕生日】${child3birthday}\n【性別】${child3sex}`;
-
-		//alert(msg);
-		sendText(msg);
-		return false;
-            });
-        });
-
-    </script>
-    
-	<script>
-		window.onload = function() {
-			const spinner = document.getElementById('loading');
-			
-			setTimeout(function() {
-				// Add .loaded to .loading
-				spinner.classList.add('loaded');
-			}, 3000);
-
-		}
-	</script>
-	
-    <script>
-        function getData(userID) {
-            const endpoint = "https://script.google.com/macros/s/AKfycbwsQYEEajE-pXvm_FVPR6Y9sCNAljuXQNEd3IUMDDfZz_0HSXJWlbQy5UHn7rMktyg/exec";
-              
-            //APIを使って非同期データを取得する
-            fetch((urlOf(endpoint, { userID: userID })))
-            .then(response => response.json())
-            /*成功した処理*/
-            .then(data => {
-                //JSONから配列に変換
-                const object = data;
-                //inputタグそれぞれに取得したデータを設定
-                $('input').each(function (index, element) {
-                    if (object[0][$(element).attr('name')]) {
-                        $(element).val([object[0][$(element).attr('name')]]);
-                    }
-                });
-            });
-         }
-        
-        function urlOf(url, params) {
-            return `${url}?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`;
-        }
-    </script>
-	
+	<!--<script src="system.js"></script>-->
 </body>
 </html>
